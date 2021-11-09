@@ -1,7 +1,8 @@
 # Monets  [not finished]
 
 This is a project in development and a part of the [Software development 2] course on Faculty of Information Technologies in Mostar, BiH.
-Monets is a restaurant where the employees are using the desktop app for user overview, food and menu creation and ect., while the mobile app is used by the restaurants clients and  they can create reservations, add food or whole menus to a reservations, pay thorugh the app, choose a table and time and similar.
+
+Monets is a restaurant where the employees are using the desktop app for user overview, food and menu creation and ect., while the mobile app is used by the restaurants clients and  they can create reservations, add foods or whole menus to a reservations, pay thorugh the app, choose a table and time and similar.
 
 The whole project consists of three parts:
   *Web API - backend created using ASP.Net
