@@ -26,7 +26,7 @@ The whole project consists of three parts:
 
 
 # Mobile app screenshots
-The mobile app is still not finished, but mockup design is available.
+The mobile app is still not finished, but the mockup design is available.
 
 ### Login
 ![alt text](https://raw.githubusercontent.com/jasminbumbul/Monets-RS2_Seminarski/main/screenshots/mobile_login.png?token=AK34RGYIJZUALAOH23TVHIDBSOS52)
