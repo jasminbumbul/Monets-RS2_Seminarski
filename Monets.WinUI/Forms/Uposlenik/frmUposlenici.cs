@@ -1,20 +1,25 @@
 ﻿using Monets.Model.Requests;
 using Monets.WinUI.Forms.Static;
 using Monets.WinUI.Services;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Monets.WinUI.Forms.Korisnik
+namespace Monets.WinUI.Forms.Uposlenik
 {
     public partial class frmUposlenici : Form
     {
         private readonly APIService uposlenikService = new APIService("Uposlenik");
         private List<Model.Uposlenik> listaUposlenika = new List<Model.Uposlenik>();
+        private IPagedList<Model.Uposlenik> pagedListaUposlenika;
+        private int pageNumber = 1;
+        private int pageSize = 10;
 
         public frmUposlenici()
         {
@@ -35,8 +40,14 @@ namespace Monets.WinUI.Forms.Korisnik
             }
 
             listaUposlenika = await uposlenikService.Get<List<Model.Uposlenik>>(search);
+            listaUposlenika = listaUposlenika.OrderBy(x => x.Ime).ThenBy(x=> x.Prezime).ThenBy(x=> x.Status).ToList();
+            pagedListaUposlenika = listaUposlenika.ToPagedList(pageNumber, pageSize);
             dgvUposlenici.AutoGenerateColumns = false;
-            dgvUposlenici.DataSource = listaUposlenika;
+            dgvUposlenici.DataSource = pagedListaUposlenika.ToList();
+
+            btnPrethodna.Enabled = pagedListaUposlenika.HasPreviousPage;
+            btnSljedeca.Enabled = pagedListaUposlenika.HasNextPage;
+            lblStranica.Text = string.Format("Page {0}/{1}", pageNumber, pagedListaUposlenika.PageCount);
         }
 
         private void cbAktivniUposlenici_CheckedChanged(object sender, EventArgs e)
@@ -62,7 +73,7 @@ namespace Monets.WinUI.Forms.Korisnik
         private async void dgvUposlenici_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var id = (int)dgvUposlenici.Rows[e.RowIndex].Cells[0].Value;
-            if (dgvUposlenici.Columns[e.ColumnIndex].Name == "Brisanje" && e.RowIndex != -1)
+            if (dgvUposlenici.Columns[e.ColumnIndex].Name == "Deaktivacija" && e.RowIndex != -1)
             {
                 var ime = dgvUposlenici.Rows[e.RowIndex].Cells[1].Value;
                 var prezime = dgvUposlenici.Rows[e.RowIndex].Cells[2].Value;
@@ -89,6 +100,49 @@ namespace Monets.WinUI.Forms.Korisnik
                 var uposlenik = await uposlenikService.GetById<Model.Uposlenik>(id);
                 frmMain.INSTANCE.loadUpdateUposlenika(uposlenik);
             }
+        }
+
+        private void btnSljedeca_Click(object sender, EventArgs e)
+        {
+            if (pagedListaUposlenika.HasNextPage)
+            {
+                pagedListaUposlenika = listaUposlenika.ToPagedList(++pageNumber, pageSize);
+
+                dgvUposlenici.AutoGenerateColumns = false;
+                dgvUposlenici.DataSource = pagedListaUposlenika.ToList();
+
+                btnPrethodna.Enabled = pagedListaUposlenika.HasPreviousPage;
+                btnSljedeca.Enabled = pagedListaUposlenika.HasNextPage;
+                lblStranica.Text = string.Format("Page {0}/{1}", pageNumber, pagedListaUposlenika.PageCount);
+            }
+        }
+
+        private void btnPrethodna_Click(object sender, EventArgs e)
+        {
+            if (pagedListaUposlenika.HasPreviousPage)
+            {
+                pagedListaUposlenika = listaUposlenika.ToPagedList(--pageNumber, pageSize);
+
+                dgvUposlenici.AutoGenerateColumns = false;
+                dgvUposlenici.DataSource = pagedListaUposlenika.ToList();
+
+                btnPrethodna.Enabled = pagedListaUposlenika.HasPreviousPage;
+                btnSljedeca.Enabled = pagedListaUposlenika.HasNextPage;
+                lblStranica.Text = string.Format("Page {0}/{1}", pageNumber, pagedListaUposlenika.PageCount);
+            }
+        }
+
+        private void dgvUposlenici_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dgvUposlenici.Columns["Deaktivacija"];
+            c.FlatStyle = FlatStyle.Popup;
+            c.DefaultCellStyle.ForeColor = Color.Black;
+            c.DefaultCellStyle.BackColor = Color.FromArgb(243, 76, 54);
+
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dgvUposlenici.Columns["Detalji"];
+            d.FlatStyle = FlatStyle.Popup;
+            d.DefaultCellStyle.ForeColor = Color.White;
+            d.DefaultCellStyle.BackColor = Color.FromArgb(42, 2, 82);
         }
     }
 }

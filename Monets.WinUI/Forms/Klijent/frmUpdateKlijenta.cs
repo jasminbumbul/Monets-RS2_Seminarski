@@ -7,27 +7,25 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Monets.WinUI.Forms.Uposlenik
+namespace Monets.WinUI.Forms.Klijent
 {
-    public partial class frmUpdateUposlenika : Form
+    public partial class frmUpdateKlijenta : Form
     {
-        private Model.Uposlenik uposlenik;
+        private Model.Klijent klijent;
         private readonly APIService gradService = new APIService("Grad");
-        private readonly APIService ulogaService = new APIService("Uloga");
-        private readonly APIService uposlenikService = new APIService("Uposlenik");
-        private UposlenikUpdateRequest request = new UposlenikUpdateRequest();
-        public frmUpdateUposlenika(Model.Uposlenik uposlenik)
+        private readonly APIService klijentService = new APIService("Klijent");
+        private KlijentUpdateRequest request = new KlijentUpdateRequest();
+        public frmUpdateKlijenta(Model.Klijent klijent = null)
         {
             InitializeComponent();
-            if(uposlenik!=null)
+            if (klijent != null)
             {
-                this.uposlenik = uposlenik;
+                this.klijent = klijent;
                 ucitajPodatke();
             }
         }
@@ -36,19 +34,17 @@ namespace Monets.WinUI.Forms.Uposlenik
         {
             pbLoading.Visible = false;
             await ucitajGradove();
-            await ucitajUloge();
-            await UcitajSliku(uposlenik.Slika);
+            await UcitajSliku(klijent.Slika);
 
-            txtIme.Text = uposlenik.Ime;
-            txtPrezime.Text = uposlenik.Prezime;
-            txtKorisnickoIme.Text = uposlenik.KorisnickoIme;
-            txtEmail.Text = uposlenik.Email;
-            dtpDatumRodjenja.Value = uposlenik.DatumRodjenja;
-            dtpDatumZaspolenja.Value = uposlenik.DatumZaposlenja;
-            txtAdresa.Text = uposlenik.Adresa;
-            txtTelefon.Text = uposlenik.Telefon;
+            txtIme.Text = klijent.Ime;
+            txtPrezime.Text = klijent.Prezime;
+            txtKorisnickoIme.Text = klijent.KorisnickoIme;
+            txtEmail.Text = klijent.Email;
+            dtpDatumRodjenja.Value = klijent.DatumRodjenja;
+            txtAdresa.Text = klijent.Adresa;
+            txtTelefon.Text = klijent.Telefon;
 
-            if(uposlenik.Status==true)
+            if (klijent.Status == true)
             {
                 rbDa.Checked = true;
                 rbNe.Checked = false;
@@ -77,33 +73,25 @@ namespace Monets.WinUI.Forms.Uposlenik
             cmbGrad.DataSource = listaGradova;
             cmbGrad.ValueMember = "GradId";
             cmbGrad.DisplayMember = "Naziv";
-            cmbGrad.SelectedValue = uposlenik.GradId;
+            cmbGrad.SelectedValue = klijent.GradId;
         }
 
-        private async Task ucitajUloge()
+        private void btnBrowse_Click_1(object sender, EventArgs e)
         {
-            var listaUloga = await ulogaService.Get<List<Model.Uloga>>(null);
+            var result = openFileDialog.ShowDialog();
 
-            clbUloge.DataSource = listaUloga;
-            clbUloge.ValueMember = "UlogaId";
-            clbUloge.DisplayMember = "Naziv";
-
-            var clbListUloge = clbUloge.Items.Cast<Model.Uloga>();
-
-            for (int i = 0; i < uposlenik.UposlenikUloga.Count; i++)
+            if (result == DialogResult.OK)
             {
-                for (int j = 0; j < clbListUloge.Count(); j++)
-                {
-                    if (uposlenik.UposlenikUloga.ElementAt(i).Uloga.UlogaId == clbListUloge.ElementAt(j).UlogaId)
-                    {
-                        clbUloge.SetItemChecked(j, true);
-                    }
-                }
-
+                var filename = openFileDialog.FileName;
+                request.SlikaPutanja = filename;
+                var file = File.ReadAllBytes(filename);
+                request.Slika = file;
+                Image img = Image.FromFile(filename);
+                pbSlika.Image = img;
             }
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click_1(object sender, EventArgs e)
         {
             if (this.ValidateChildren() && ProvjeraValidnostiPolja() == true)
             {
@@ -116,7 +104,6 @@ namespace Monets.WinUI.Forms.Uposlenik
                     request.Prezime = txtPrezime.Text;
                     request.KorisnickoIme = txtKorisnickoIme.Text;
                     request.Email = txtEmail.Text;
-                    request.DatumZaposlenja = dtpDatumZaspolenja.Value;
                     request.DatumRodjenja = dtpDatumRodjenja.Value;
                     request.Adresa = txtAdresa.Text;
                     request.GradId = (int)cmbGrad.SelectedValue;
@@ -132,17 +119,14 @@ namespace Monets.WinUI.Forms.Uposlenik
                         request.Status = false;
                     }
 
-                    var uloge = clbUloge.CheckedItems.Cast<Model.Uloga>();
-                    request.Uloge = uloge.Select(s => s.UlogaId).ToList();
-
-                    var response = await uposlenikService.Update<Model.Uposlenik>(uposlenik.UposlenikId, request);
+                    var response = await klijentService.Update<Model.Klijent>(klijent.KlijentId, request);
 
                     if (response != null)
                     {
-                        MessageBox.Show("Uspješno ste updateali uposlenika - " + response.Ime + " " + response.Prezime, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Uspješno ste updateali klijenta - " + response.Ime + " " + response.Prezime, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         request.SlikaPutanja = response.SlikaPutanja;
                     }
-                    frmMain.INSTANCE.btnPregledKorisnika_Click();
+                    frmMain.INSTANCE.btnPregledKlijenata_Click();
                 }
                 catch (Exception ex)
                 {
@@ -151,21 +135,6 @@ namespace Monets.WinUI.Forms.Uposlenik
 
                 btnSave.Enabled = true;
                 pbLoading.Visible = false;
-            }
-        }
-
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            var result = openFileDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                var filename = openFileDialog.FileName;
-                request.SlikaPutanja = filename;
-                var file = File.ReadAllBytes(filename);
-                request.Slika = file;
-                Image img = Image.FromFile(filename);
-                pbSlika.Image = img;
             }
         }
 
@@ -318,18 +287,6 @@ namespace Monets.WinUI.Forms.Uposlenik
             }
         }
 
-        private void clbUloge_Validating(object sender, CancelEventArgs e)
-        {
-            if (clbUloge.CheckedItems.Count == 0)
-            {
-                errorProvider.SetError(clbUloge, Properties.Resources.NeispravanOdabirUloge);
-            }
-            else
-            {
-                errorProvider.SetError(clbUloge, null);
-            }
-        }
-
         private bool ProvjeraValidnostiPolja()
         {
             if (errorProvider.GetError(txtIme).Length > 0)
@@ -357,9 +314,6 @@ namespace Monets.WinUI.Forms.Uposlenik
                 return false;
 
             if (errorProvider.GetError(txtTelefon).Length > 0)
-                return false;
-
-            if (errorProvider.GetError(clbUloge).Length > 0)
                 return false;
 
             return true;

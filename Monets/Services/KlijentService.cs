@@ -181,6 +181,7 @@ namespace Monets.Api.Services
             if (request.Email != null && request.Email != entity.KorisnickiRacun.Email) entity.KorisnickiRacun.Email = request.Email;
             if (request.DatumRodjenja != null && request.DatumRodjenja != entity.KorisnickiRacun.DatumRodjenja) entity.KorisnickiRacun.DatumRodjenja = request.DatumRodjenja;
             if (request.Status != null && request.Status != entity.Status) entity.Status = request.Status;
+            if (request.GradId != 0 && request.GradId != entity.GradId) entity.GradId = request.GradId;
             if (request.Telefon != null && request.Telefon != entity.KorisnickiRacun.Telefon) entity.KorisnickiRacun.Telefon = request.Telefon;
             if (request.SlikaPutanja != null && request.Slika != null && request.SlikaPutanja != entity.KorisnickiRacun.SlikaPutanja) entity.KorisnickiRacun.SlikaPutanja = await imageHelper.ReplaceImage("KorisnickiRacun", entity.KorisnickiRacunId, entity.KorisnickiRacun.SlikaPutanja, request.SlikaPutanja, request.Slika);
             if (request.Lozinka != null && request.LozinkaPotrvda != null && request.Lozinka.Length > 0 && request.LozinkaPotrvda.Length > 0 && request.Lozinka == request.LozinkaPotrvda)
@@ -214,6 +215,7 @@ namespace Monets.Api.Services
             if (request.KorisnickoIme != entity.KorisnickiRacun.KorisnickoIme) return true;
             if (request.DatumRodjenja != entity.KorisnickiRacun.DatumRodjenja) return true;
             if (request.Status != entity.Status) return true;
+            if (request.GradId != entity.GradId) return true;
             if (request.Telefon != entity.KorisnickiRacun.Telefon) return true;
             if (request.SlikaPutanja != null && request.Slika != null && request.SlikaPutanja != entity.KorisnickiRacun.SlikaPutanja) return true;
             if (request.Lozinka != null && request.LozinkaPotrvda != null && request.Lozinka.Length > 0 && request.LozinkaPotrvda.Length > 0) return true;

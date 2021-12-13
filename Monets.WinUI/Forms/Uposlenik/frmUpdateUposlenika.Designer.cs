@@ -29,6 +29,7 @@ namespace Monets.WinUI.Forms.Uposlenik
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateUposlenika));
             this.lblNaslov = new System.Windows.Forms.Label();
             this.pbLoading = new System.Windows.Forms.PictureBox();
@@ -65,11 +66,13 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.lbl1 = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNaslov
@@ -129,6 +132,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.clbUloge.Name = "clbUloge";
             this.clbUloge.Size = new System.Drawing.Size(147, 184);
             this.clbUloge.TabIndex = 34;
+            this.clbUloge.Validating += new System.ComponentModel.CancelEventHandler(this.clbUloge_Validating);
             // 
             // groupBox2
             // 
@@ -172,7 +176,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.rbNe);
             this.groupBox1.Controls.Add(this.rbDa);
@@ -288,6 +292,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtLozinka.PasswordChar = '●';
             this.txtLozinka.Size = new System.Drawing.Size(200, 25);
             this.txtLozinka.TabIndex = 50;
+            this.txtLozinka.Validating += new System.ComponentModel.CancelEventHandler(this.txtLozinka_Validating);
             // 
             // label9
             // 
@@ -312,6 +317,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.cmbGrad.Name = "cmbGrad";
             this.cmbGrad.Size = new System.Drawing.Size(200, 27);
             this.cmbGrad.TabIndex = 43;
+            this.cmbGrad.Validating += new System.ComponentModel.CancelEventHandler(this.cmbGrad_Validating);
             // 
             // txtPotvrdaLozinke
             // 
@@ -323,6 +329,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtPotvrdaLozinke.PasswordChar = '●';
             this.txtPotvrdaLozinke.Size = new System.Drawing.Size(200, 25);
             this.txtPotvrdaLozinke.TabIndex = 48;
+            this.txtPotvrdaLozinke.Validating += new System.ComponentModel.CancelEventHandler(this.txtPotvrdaLozinke_Validating);
             // 
             // dtpDatumRodjenja
             // 
@@ -368,6 +375,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(200, 25);
             this.txtKorisnickoIme.TabIndex = 44;
+            this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
             // 
             // label4
             // 
@@ -404,6 +412,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(200, 25);
             this.txtAdresa.TabIndex = 39;
+            this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // label2
             // 
@@ -427,6 +436,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 25);
             this.txtEmail.TabIndex = 37;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label3
             // 
@@ -450,6 +460,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(200, 25);
             this.txtTelefon.TabIndex = 35;
+            this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // label1
             // 
@@ -473,6 +484,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(200, 25);
             this.txtPrezime.TabIndex = 33;
+            this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
             // 
             // lbl1
             // 
@@ -496,10 +508,15 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(200, 25);
             this.txtIme.TabIndex = 31;
+            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmUpdateUposlenika
             // 
@@ -524,6 +541,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,5 +582,6 @@ namespace Monets.WinUI.Forms.Uposlenik
         private System.Windows.Forms.RadioButton rbDa;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

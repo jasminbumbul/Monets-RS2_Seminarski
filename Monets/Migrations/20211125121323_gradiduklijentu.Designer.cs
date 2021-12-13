@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monets.Api.Database;
 
 namespace Monets.Api.Migrations
 {
     [DbContext(typeof(MonetsContext))]
-    partial class MonetsContextModelSnapshot : ModelSnapshot
+    [Migration("20211125121323_gradiduklijentu")]
+    partial class gradiduklijentu
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

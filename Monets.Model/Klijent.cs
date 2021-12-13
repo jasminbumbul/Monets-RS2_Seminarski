@@ -13,11 +13,13 @@ namespace Monets.Model
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string Adresa { get; set; }
-        public DateTime DatumUclanjenja { get; set; }
+        public DateTime DatumKreiranja { get; set; }
         public DateTime DatumRodjenja { get; set; }
         public string SlikaPutanja { get; set; }
         public byte[] Slika { get; set; }
         public bool? Status { get; set; }
+        public int GradId { get; set; }
+
         public virtual Model.Grad Grad { get; set; }
     }
 }

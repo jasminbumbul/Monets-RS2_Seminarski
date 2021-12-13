@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using Monets.WinUI.Forms.Jelo;
-using Monets.WinUI.Forms.Korisnik;
+using Monets.WinUI.Forms.Klijent;
 using Monets.WinUI.Forms.Meni;
 using Monets.WinUI.Forms.Rezervacija;
 using Monets.WinUI.Forms.Uposlenik;
@@ -73,7 +73,8 @@ namespace Monets.WinUI.Forms.Static
             panelJelaSubmenu.Visible = false;
             panelMeniSubmenu.Visible = false;
             panelUposleniciSubmenu.Visible = false;
-            panelIzvjestajiSubmenu.Visible = false;
+            panelKlijenti.Visible = false;
+            panelIzvjestaji.Visible = false;
         }
 
         private void hideSubMenu()
@@ -84,8 +85,10 @@ namespace Monets.WinUI.Forms.Static
                 panelMeniSubmenu.Visible = false;
             if (panelUposleniciSubmenu.Visible == true)
                 panelUposleniciSubmenu.Visible = false;
-            if (panelIzvjestajiSubmenu.Visible == true)
-                panelIzvjestajiSubmenu.Visible = false;
+            if (panelKlijenti.Visible == true)
+                panelKlijenti.Visible = false;
+            if (panelIzvjestaji.Visible == true)
+                panelIzvjestaji.Visible = false;
         }
 
         private void showSubmenu(Panel submenu)
@@ -116,7 +119,6 @@ namespace Monets.WinUI.Forms.Static
 
         private void btnIzvještaj_Click(object sender, EventArgs e)
         {
-            showSubmenu(panelIzvjestajiSubmenu);
         }
 
 
@@ -427,6 +429,24 @@ namespace Monets.WinUI.Forms.Static
             pbLoading.Visible = false;
         }
 
+        public void loadUpdateKlijenta(Model.Klijent klijent)
+        {
+            try
+            {
+                clearMainPanel();
+                lblNazivStranice.Text = "Klijenti";
+                openChildForm(new frmUpdateKlijenta(klijent), mainPanel);
+
+                pbLoading.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            pbLoading.Visible = false;
+        }
+
         private void btnDodajUposlenika_Click(object sender, EventArgs e)
         {
             try
@@ -444,6 +464,36 @@ namespace Monets.WinUI.Forms.Static
             }
 
             btnDodajUposlenika.Enabled = true;
+            pbLoading.Visible = false;
+        }
+
+        private void btnKlijenti_Click(object sender, EventArgs e)
+        {
+            showSubmenu(panelKlijenti);
+        }
+
+        private void btnIzvjestaji_Click(object sender, EventArgs e)
+        {
+            showSubmenu(panelIzvjestaji);
+        }
+
+        public void btnPregledKlijenata_Click(object sender=null, EventArgs e=null)
+        {
+            try
+            {
+                clearMainPanel();
+                lblNazivStranice.Text = "Klijenti";
+                openChildForm(new frmKlijenti(), mainPanel);
+
+                btnPregledKlijenata.Enabled = false;
+                pbLoading.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            btnPregledKlijenata.Enabled = true;
             pbLoading.Visible = false;
         }
     }

@@ -31,11 +31,14 @@ namespace Monets.WinUI.Forms.Static
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panelSidemenu = new System.Windows.Forms.Panel();
-            this.panelIzvjestajiSubmenu = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnIzvještaj = new FontAwesome.Sharp.IconButton();
+            this.panelIzvjestaji = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.btnIzvjestaji = new FontAwesome.Sharp.IconButton();
+            this.panelKlijenti = new System.Windows.Forms.Panel();
+            this.btnPregledKlijenata = new FontAwesome.Sharp.IconButton();
+            this.btnKlijenti = new FontAwesome.Sharp.IconButton();
             this.panelUposleniciSubmenu = new System.Windows.Forms.Panel();
             this.btnDodajUposlenika = new FontAwesome.Sharp.IconButton();
             this.btnPregledUposlenika = new FontAwesome.Sharp.IconButton();
@@ -61,7 +64,8 @@ namespace Monets.WinUI.Forms.Static
             this.panelTitle = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panelSidemenu.SuspendLayout();
-            this.panelIzvjestajiSubmenu.SuspendLayout();
+            this.panelIzvjestaji.SuspendLayout();
+            this.panelKlijenti.SuspendLayout();
             this.panelUposleniciSubmenu.SuspendLayout();
             this.panelMeniSubmenu.SuspendLayout();
             this.panelJelaSubmenu.SuspendLayout();
@@ -75,8 +79,10 @@ namespace Monets.WinUI.Forms.Static
             // 
             this.panelSidemenu.AutoScroll = true;
             this.panelSidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.panelSidemenu.Controls.Add(this.panelIzvjestajiSubmenu);
-            this.panelSidemenu.Controls.Add(this.btnIzvještaj);
+            this.panelSidemenu.Controls.Add(this.panelIzvjestaji);
+            this.panelSidemenu.Controls.Add(this.btnIzvjestaji);
+            this.panelSidemenu.Controls.Add(this.panelKlijenti);
+            this.panelSidemenu.Controls.Add(this.btnKlijenti);
             this.panelSidemenu.Controls.Add(this.panelUposleniciSubmenu);
             this.panelSidemenu.Controls.Add(this.btnUposlenici);
             this.panelSidemenu.Controls.Add(this.btnRezervacije);
@@ -91,86 +97,146 @@ namespace Monets.WinUI.Forms.Static
             this.panelSidemenu.Size = new System.Drawing.Size(280, 834);
             this.panelSidemenu.TabIndex = 0;
             // 
-            // panelIzvjestajiSubmenu
+            // panelIzvjestaji
             // 
-            this.panelIzvjestajiSubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(2)))), ((int)(((byte)(110)))));
-            this.panelIzvjestajiSubmenu.Controls.Add(this.button3);
-            this.panelIzvjestajiSubmenu.Controls.Add(this.button2);
-            this.panelIzvjestajiSubmenu.Controls.Add(this.button1);
-            this.panelIzvjestajiSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelIzvjestajiSubmenu.Location = new System.Drawing.Point(0, 749);
-            this.panelIzvjestajiSubmenu.Name = "panelIzvjestajiSubmenu";
-            this.panelIzvjestajiSubmenu.Size = new System.Drawing.Size(263, 126);
-            this.panelIzvjestajiSubmenu.TabIndex = 9;
+            this.panelIzvjestaji.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(2)))), ((int)(((byte)(110)))));
+            this.panelIzvjestaji.Controls.Add(this.iconButton1);
+            this.panelIzvjestaji.Controls.Add(this.iconButton4);
+            this.panelIzvjestaji.Controls.Add(this.iconButton5);
+            this.panelIzvjestaji.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelIzvjestaji.Location = new System.Drawing.Point(0, 865);
+            this.panelIzvjestaji.Name = "panelIzvjestaji";
+            this.panelIzvjestaji.Size = new System.Drawing.Size(263, 118);
+            this.panelIzvjestaji.TabIndex = 13;
             // 
-            // button3
+            // iconButton1
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 80);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(263, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Izvještaj3";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(0, 80);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(263, 40);
+            this.iconButton1.TabIndex = 2;
+            this.iconButton1.Text = "Izvjestaj";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // iconButton4
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 40);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(263, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Izvještaj2";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
+            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButton4.ForeColor = System.Drawing.Color.White;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton4.IconColor = System.Drawing.Color.Black;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.Location = new System.Drawing.Point(0, 40);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.iconButton4.Size = new System.Drawing.Size(263, 40);
+            this.iconButton4.TabIndex = 1;
+            this.iconButton4.Text = "Izvjestaj";
+            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // iconButton5
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(263, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Izvještaj1";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
+            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButton5.ForeColor = System.Drawing.Color.White;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton5.IconColor = System.Drawing.Color.Black;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.Location = new System.Drawing.Point(0, 0);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.iconButton5.Size = new System.Drawing.Size(263, 40);
+            this.iconButton5.TabIndex = 0;
+            this.iconButton5.Text = "Izvještaj1";
+            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.UseVisualStyleBackColor = true;
             // 
-            // btnIzvještaj
+            // btnIzvjestaji
             // 
-            this.btnIzvještaj.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnIzvještaj.FlatAppearance.BorderSize = 0;
-            this.btnIzvještaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIzvještaj.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnIzvještaj.ForeColor = System.Drawing.Color.White;
-            this.btnIzvještaj.IconChar = FontAwesome.Sharp.IconChar.FileInvoiceDollar;
-            this.btnIzvještaj.IconColor = System.Drawing.Color.White;
-            this.btnIzvještaj.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnIzvještaj.Location = new System.Drawing.Point(0, 679);
-            this.btnIzvještaj.Name = "btnIzvještaj";
-            this.btnIzvještaj.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnIzvještaj.Size = new System.Drawing.Size(263, 70);
-            this.btnIzvještaj.TabIndex = 8;
-            this.btnIzvještaj.Text = "Izvještaj";
-            this.btnIzvještaj.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIzvještaj.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnIzvještaj.UseVisualStyleBackColor = true;
-            this.btnIzvještaj.Click += new System.EventHandler(this.btnIzvještaj_Click);
+            this.btnIzvjestaji.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIzvjestaji.FlatAppearance.BorderSize = 0;
+            this.btnIzvjestaji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIzvjestaji.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnIzvjestaji.ForeColor = System.Drawing.Color.White;
+            this.btnIzvjestaji.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.btnIzvjestaji.IconColor = System.Drawing.Color.White;
+            this.btnIzvjestaji.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnIzvjestaji.Location = new System.Drawing.Point(0, 795);
+            this.btnIzvjestaji.Name = "btnIzvjestaji";
+            this.btnIzvjestaji.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnIzvjestaji.Size = new System.Drawing.Size(263, 70);
+            this.btnIzvjestaji.TabIndex = 12;
+            this.btnIzvjestaji.Text = "Izvještaji";
+            this.btnIzvjestaji.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIzvjestaji.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIzvjestaji.UseVisualStyleBackColor = true;
+            this.btnIzvjestaji.Click += new System.EventHandler(this.btnIzvjestaji_Click);
+            // 
+            // panelKlijenti
+            // 
+            this.panelKlijenti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(2)))), ((int)(((byte)(110)))));
+            this.panelKlijenti.Controls.Add(this.btnPregledKlijenata);
+            this.panelKlijenti.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelKlijenti.Location = new System.Drawing.Point(0, 748);
+            this.panelKlijenti.Name = "panelKlijenti";
+            this.panelKlijenti.Size = new System.Drawing.Size(263, 47);
+            this.panelKlijenti.TabIndex = 10;
+            // 
+            // btnPregledKlijenata
+            // 
+            this.btnPregledKlijenata.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPregledKlijenata.FlatAppearance.BorderSize = 0;
+            this.btnPregledKlijenata.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPregledKlijenata.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPregledKlijenata.ForeColor = System.Drawing.Color.White;
+            this.btnPregledKlijenata.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnPregledKlijenata.IconColor = System.Drawing.Color.Black;
+            this.btnPregledKlijenata.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPregledKlijenata.Location = new System.Drawing.Point(0, 0);
+            this.btnPregledKlijenata.Name = "btnPregledKlijenata";
+            this.btnPregledKlijenata.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.btnPregledKlijenata.Size = new System.Drawing.Size(263, 40);
+            this.btnPregledKlijenata.TabIndex = 0;
+            this.btnPregledKlijenata.Text = "Pregled klijenata";
+            this.btnPregledKlijenata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPregledKlijenata.UseVisualStyleBackColor = true;
+            this.btnPregledKlijenata.Click += new System.EventHandler(this.btnPregledKlijenata_Click);
+            // 
+            // btnKlijenti
+            // 
+            this.btnKlijenti.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKlijenti.FlatAppearance.BorderSize = 0;
+            this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKlijenti.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnKlijenti.ForeColor = System.Drawing.Color.White;
+            this.btnKlijenti.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnKlijenti.IconColor = System.Drawing.Color.White;
+            this.btnKlijenti.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnKlijenti.Location = new System.Drawing.Point(0, 678);
+            this.btnKlijenti.Name = "btnKlijenti";
+            this.btnKlijenti.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnKlijenti.Size = new System.Drawing.Size(263, 70);
+            this.btnKlijenti.TabIndex = 9;
+            this.btnKlijenti.Text = "Klijenti";
+            this.btnKlijenti.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKlijenti.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnKlijenti.UseVisualStyleBackColor = true;
+            this.btnKlijenti.Click += new System.EventHandler(this.btnKlijenti_Click);
             // 
             // panelUposleniciSubmenu
             // 
@@ -180,7 +246,7 @@ namespace Monets.WinUI.Forms.Static
             this.panelUposleniciSubmenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUposleniciSubmenu.Location = new System.Drawing.Point(0, 593);
             this.panelUposleniciSubmenu.Name = "panelUposleniciSubmenu";
-            this.panelUposleniciSubmenu.Size = new System.Drawing.Size(263, 86);
+            this.panelUposleniciSubmenu.Size = new System.Drawing.Size(263, 85);
             this.panelUposleniciSubmenu.TabIndex = 7;
             // 
             // btnDodajUposlenika
@@ -575,7 +641,8 @@ namespace Monets.WinUI.Forms.Static
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelSidemenu.ResumeLayout(false);
-            this.panelIzvjestajiSubmenu.ResumeLayout(false);
+            this.panelIzvjestaji.ResumeLayout(false);
+            this.panelKlijenti.ResumeLayout(false);
             this.panelUposleniciSubmenu.ResumeLayout(false);
             this.panelMeniSubmenu.ResumeLayout(false);
             this.panelJelaSubmenu.ResumeLayout(false);
@@ -595,17 +662,9 @@ namespace Monets.WinUI.Forms.Static
         private System.Windows.Forms.Panel panelSidemenu;
         private FontAwesome.Sharp.IconButton btnJela;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Panel panelIzvjestajiSubmenu;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panelUposleniciSubmenu;
         private System.Windows.Forms.Panel panelMeniSubmenu;
         private System.Windows.Forms.Panel panelJelaSubmenu;
         private System.Windows.Forms.Label lblLogo;
-        private FontAwesome.Sharp.IconButton btnIzvještaj;
-        private FontAwesome.Sharp.IconButton btnDodajUposlenika;
-        private FontAwesome.Sharp.IconButton btnPregledUposlenika;
         private FontAwesome.Sharp.IconButton btnUposlenici;
         private FontAwesome.Sharp.IconButton btnRezervacije;
         private FontAwesome.Sharp.IconButton btnDodajMeni;
@@ -622,5 +681,16 @@ namespace Monets.WinUI.Forms.Static
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.PictureBox pbLoading;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Panel panelUposleniciSubmenu;
+        private FontAwesome.Sharp.IconButton btnDodajUposlenika;
+        private FontAwesome.Sharp.IconButton btnPregledUposlenika;
+        private System.Windows.Forms.Panel panelIzvjestaji;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton btnIzvjestaji;
+        private System.Windows.Forms.Panel panelKlijenti;
+        private FontAwesome.Sharp.IconButton btnPregledKlijenata;
+        private FontAwesome.Sharp.IconButton btnKlijenti;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

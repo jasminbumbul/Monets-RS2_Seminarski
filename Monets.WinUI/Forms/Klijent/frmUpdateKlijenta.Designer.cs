@@ -1,7 +1,7 @@
 ﻿
-namespace Monets.WinUI.Forms.Uposlenik
+namespace Monets.WinUI.Forms.Klijent
 {
-    partial class frmDodajUposlenika
+    partial class frmUpdateKlijenta
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,16 @@ namespace Monets.WinUI.Forms.Uposlenik
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDodajUposlenika));
-            this.lblNaslov = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateKlijenta));
+            this.pbLoading = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.pbSlika = new System.Windows.Forms.PictureBox();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.txtIme = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpDatumZaspolenja = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
+            this.rbNe = new System.Windows.Forms.RadioButton();
+            this.rbDa = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtLozinka = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,38 +58,56 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPrezime = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.clbUloge = new System.Windows.Forms.CheckedListBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.pbLoading = new System.Windows.Forms.PictureBox();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.txtIme = new System.Windows.Forms.TextBox();
+            this.lblNaslov = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblNaslov
+            // pbLoading
             // 
-            this.lblNaslov.Font = new System.Drawing.Font("Corbel", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblNaslov.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lblNaslov.Location = new System.Drawing.Point(116, 9);
-            this.lblNaslov.Name = "lblNaslov";
-            this.lblNaslov.Size = new System.Drawing.Size(327, 36);
-            this.lblNaslov.TabIndex = 17;
-            this.lblNaslov.Text = "Dodaj novog uposlenika";
+            this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLoading.Image = ((System.Drawing.Image)(resources.GetObject("pbLoading.Image")));
+            this.pbLoading.Location = new System.Drawing.Point(463, -1);
+            this.pbLoading.Name = "pbLoading";
+            this.pbLoading.Size = new System.Drawing.Size(110, 56);
+            this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLoading.TabIndex = 46;
+            this.pbLoading.TabStop = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Corbel", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(547, 304);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(180, 54);
+            this.btnSave.TabIndex = 42;
+            this.btnSave.Text = "Spremi promjene";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnBrowse);
             this.groupBox2.Controls.Add(this.pbSlika);
-            this.groupBox2.Location = new System.Drawing.Point(654, 72);
+            this.groupBox2.Location = new System.Drawing.Point(797, 71);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(180, 223);
-            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Slika";
             // 
@@ -109,7 +127,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.btnBrowse.TabIndex = 27;
             this.btnBrowse.Text = "Browse ";
             this.btnBrowse.UseVisualStyleBackColor = false;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click_1);
             // 
             // pbSlika
             // 
@@ -122,36 +140,13 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.pbSlika.TabIndex = 25;
             this.pbSlika.TabStop = false;
             // 
-            // lbl1
-            // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lbl1.Location = new System.Drawing.Point(13, 30);
-            this.lbl1.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(40, 23);
-            this.lbl1.TabIndex = 32;
-            this.lbl1.Text = "Ime";
-            this.lbl1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtIme
-            // 
-            this.txtIme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtIme.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIme.Location = new System.Drawing.Point(13, 59);
-            this.txtIme.Multiline = true;
-            this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(200, 25);
-            this.txtIme.TabIndex = 31;
-            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dtpDatumZaspolenja);
-            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.rbNe);
+            this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.rbDa);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtLozinka);
             this.groupBox1.Controls.Add(this.label9);
@@ -172,34 +167,49 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.groupBox1.Controls.Add(this.txtPrezime);
             this.groupBox1.Controls.Add(this.lbl1);
             this.groupBox1.Controls.Add(this.txtIme);
-            this.groupBox1.Location = new System.Drawing.Point(116, 72);
+            this.groupBox1.Location = new System.Drawing.Point(250, 61);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(494, 440);
-            this.groupBox1.TabIndex = 33;
+            this.groupBox1.Size = new System.Drawing.Size(747, 386);
+            this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Informacije o uposleniku";
+            this.groupBox1.Text = "Informacije o klijentu";
             // 
-            // dtpDatumZaspolenja
+            // rbNe
             // 
-            this.dtpDatumZaspolenja.CalendarFont = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpDatumZaspolenja.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dtpDatumZaspolenja.Location = new System.Drawing.Point(13, 194);
-            this.dtpDatumZaspolenja.Name = "dtpDatumZaspolenja";
-            this.dtpDatumZaspolenja.Size = new System.Drawing.Size(200, 23);
-            this.dtpDatumZaspolenja.TabIndex = 53;
+            this.rbNe.AutoSize = true;
+            this.rbNe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNe.Location = new System.Drawing.Point(679, 264);
+            this.rbNe.Name = "rbNe";
+            this.rbNe.Size = new System.Drawing.Size(48, 25);
+            this.rbNe.TabIndex = 57;
+            this.rbNe.TabStop = true;
+            this.rbNe.Text = "Ne";
+            this.rbNe.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // rbDa
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label10.Location = new System.Drawing.Point(13, 163);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(151, 23);
-            this.label10.TabIndex = 52;
-            this.label10.Text = "Datum zaposlenja";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.rbDa.AutoSize = true;
+            this.rbDa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbDa.Location = new System.Drawing.Point(547, 264);
+            this.rbDa.Name = "rbDa";
+            this.rbDa.Size = new System.Drawing.Size(47, 25);
+            this.rbDa.TabIndex = 56;
+            this.rbDa.TabStop = true;
+            this.rbDa.Text = "Da";
+            this.rbDa.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.label11.Location = new System.Drawing.Point(597, 247);
+            this.label11.Margin = new System.Windows.Forms.Padding(0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(74, 23);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "Aktivan ";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label8
             // 
@@ -224,8 +234,6 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtLozinka.PasswordChar = '●';
             this.txtLozinka.Size = new System.Drawing.Size(200, 25);
             this.txtLozinka.TabIndex = 50;
-            this.txtLozinka.TextChanged += new System.EventHandler(this.txtLozinka_TextChanged);
-            this.txtLozinka.Validating += new System.ComponentModel.CancelEventHandler(this.txtLozinka_Validating);
             // 
             // label9
             // 
@@ -246,11 +254,10 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.cmbGrad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.cmbGrad.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbGrad.FormattingEnabled = true;
-            this.cmbGrad.Location = new System.Drawing.Point(254, 263);
+            this.cmbGrad.Location = new System.Drawing.Point(255, 260);
             this.cmbGrad.Name = "cmbGrad";
             this.cmbGrad.Size = new System.Drawing.Size(200, 27);
             this.cmbGrad.TabIndex = 43;
-            this.cmbGrad.Validating += new System.ComponentModel.CancelEventHandler(this.cmbGrad_Validating);
             // 
             // txtPotvrdaLozinke
             // 
@@ -262,13 +269,12 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtPotvrdaLozinke.PasswordChar = '●';
             this.txtPotvrdaLozinke.Size = new System.Drawing.Size(200, 25);
             this.txtPotvrdaLozinke.TabIndex = 48;
-            this.txtPotvrdaLozinke.Validating += new System.ComponentModel.CancelEventHandler(this.txtPotvrdaLozinke_Validating);
             // 
             // dtpDatumRodjenja
             // 
             this.dtpDatumRodjenja.CalendarFont = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDatumRodjenja.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dtpDatumRodjenja.Location = new System.Drawing.Point(254, 194);
+            this.dtpDatumRodjenja.Location = new System.Drawing.Point(13, 199);
             this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
             this.dtpDatumRodjenja.Size = new System.Drawing.Size(200, 23);
             this.dtpDatumRodjenja.TabIndex = 47;
@@ -278,7 +284,7 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label6.Location = new System.Drawing.Point(254, 163);
+            this.label6.Location = new System.Drawing.Point(13, 168);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 23);
@@ -308,7 +314,6 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(200, 25);
             this.txtKorisnickoIme.TabIndex = 44;
-            this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
             // 
             // label4
             // 
@@ -345,7 +350,6 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(200, 25);
             this.txtAdresa.TabIndex = 39;
-            this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // label2
             // 
@@ -369,14 +373,13 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 25);
             this.txtEmail.TabIndex = 37;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label3.Location = new System.Drawing.Point(13, 369);
+            this.label3.Location = new System.Drawing.Point(254, 168);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 23);
@@ -388,12 +391,11 @@ namespace Monets.WinUI.Forms.Uposlenik
             // 
             this.txtTelefon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.txtTelefon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTelefon.Location = new System.Drawing.Point(13, 398);
+            this.txtTelefon.Location = new System.Drawing.Point(254, 197);
             this.txtTelefon.Multiline = true;
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(200, 25);
             this.txtTelefon.TabIndex = 35;
-            this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // label1
             // 
@@ -417,88 +419,65 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(200, 25);
             this.txtPrezime.TabIndex = 33;
-            this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
             // 
-            // groupBox3
+            // lbl1
             // 
-            this.groupBox3.Controls.Add(this.clbUloge);
-            this.groupBox3.Location = new System.Drawing.Point(876, 72);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(180, 223);
-            this.groupBox3.TabIndex = 31;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Uloge uposlenika";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.lbl1.Location = new System.Drawing.Point(13, 30);
+            this.lbl1.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(40, 23);
+            this.lbl1.TabIndex = 32;
+            this.lbl1.Text = "Ime";
+            this.lbl1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // clbUloge
+            // txtIme
             // 
-            this.clbUloge.FormattingEnabled = true;
-            this.clbUloge.Location = new System.Drawing.Point(16, 28);
-            this.clbUloge.Name = "clbUloge";
-            this.clbUloge.Size = new System.Drawing.Size(147, 184);
-            this.clbUloge.TabIndex = 34;
-            this.clbUloge.Validating += new System.ComponentModel.CancelEventHandler(this.clbUloge_Validating);
+            this.txtIme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            this.txtIme.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtIme.Location = new System.Drawing.Point(13, 59);
+            this.txtIme.Multiline = true;
+            this.txtIme.Name = "txtIme";
+            this.txtIme.Size = new System.Drawing.Size(200, 25);
+            this.txtIme.TabIndex = 31;
             // 
-            // btnSave
+            // lblNaslov
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Corbel", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(892, 453);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(164, 59);
-            this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Spremi promjene";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // pbLoading
-            // 
-            this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbLoading.Image = ((System.Drawing.Image)(resources.GetObject("pbLoading.Image")));
-            this.pbLoading.Location = new System.Drawing.Point(809, 311);
-            this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(268, 139);
-            this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLoading.TabIndex = 34;
-            this.pbLoading.TabStop = false;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog";
+            this.lblNaslov.Font = new System.Drawing.Font("Corbel", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblNaslov.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.lblNaslov.Location = new System.Drawing.Point(250, 9);
+            this.lblNaslov.Name = "lblNaslov";
+            this.lblNaslov.Size = new System.Drawing.Size(246, 36);
+            this.lblNaslov.TabIndex = 41;
+            this.lblNaslov.Text = "Detalji klijenta";
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // frmDodajUposlenika
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
+            // frmUpdateKlijenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 698);
+            this.ClientSize = new System.Drawing.Size(1215, 476);
             this.Controls.Add(this.pbLoading);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.lblNaslov);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblNaslov);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(1214, 698);
-            this.MinimumSize = new System.Drawing.Size(1214, 698);
-            this.Name = "frmDodajUposlenika";
-            this.Text = "frmUpsertUposlenika";
-            this.Load += new System.EventHandler(this.frmDodajUposlenika_Load);
+            this.Name = "frmUpdateKlijenta";
+            this.Text = "frmUpdateKlijenta";
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -506,22 +485,15 @@ namespace Monets.WinUI.Forms.Uposlenik
 
         #endregion
 
-        private System.Windows.Forms.Label lblNaslov;
+        private System.Windows.Forms.PictureBox pbLoading;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.PictureBox pbSlika;
-        private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtAdresa;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTelefon;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPrezime;
+        private System.Windows.Forms.RadioButton rbNe;
+        private System.Windows.Forms.RadioButton rbDa;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtLozinka;
         private System.Windows.Forms.Label label9;
@@ -531,13 +503,19 @@ namespace Monets.WinUI.Forms.Uposlenik
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtKorisnickoIme;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckedListBox clbUloge;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.PictureBox pbLoading;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.DateTimePicker dtpDatumZaspolenja;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtAdresa;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTelefon;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPrezime;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.Label lblNaslov;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

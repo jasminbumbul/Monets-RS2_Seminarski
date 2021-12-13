@@ -23,10 +23,12 @@ namespace Monets.Model.Requests
         public DateTime DatumRodjenja { get; set; }
         [Required]
         public string KorisnickoIme { get; set; }
-        [Required]
         public string Lozinka { get; set; }
-        [Required]
         public string LozinkaPotrvda { get; set; }
+        [Required]
+        public int GradId { get; set; }
+        [Required]
+        public string Adresa { get; set; }
         public string SlikaPutanja { get; set; }
         public byte[] Slika { get; set; }
         public bool? Status { get; set; }

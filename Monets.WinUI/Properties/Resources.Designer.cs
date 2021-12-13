@@ -61,11 +61,65 @@ namespace Monets.WinUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Neispravan format. Prvo slovo mora biti veliko, minimalno 3 i maximalno 20 karaktera..
+        /// </summary>
+        internal static string ImePrezimeNeispravanFormat {
+            get {
+                return ResourceManager.GetString("ImePrezimeNeispravanFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimalno 4 karaktera..
+        /// </summary>
+        internal static string MinimalnaDuzina {
+            get {
+                return ResourceManager.GetString("MinimalnaDuzina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Format nije ispravan!.
+        /// </summary>
+        internal static string NeispravanFormat {
+            get {
+                return ResourceManager.GetString("NeispravanFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morate odabrati barem jednu ulogu!.
+        /// </summary>
+        internal static string NeispravanOdabirUloge {
+            get {
+                return ResourceManager.GetString("NeispravanOdabirUloge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neispravan format telefona. Ispravn primjer: 060-000-000 ili 060/000/0000 ili 0621234567.
+        /// </summary>
+        internal static string NeispravanTelefon {
+            get {
+                return ResourceManager.GetString("NeispravanTelefon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ovo polje je obavezno!.
         /// </summary>
         internal static string ObaveznoPolje {
             get {
                 return ResourceManager.GetString("ObaveznoPolje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lozinke nisu iste!.
+        /// </summary>
+        internal static string RazliciteLozinke {
+            get {
+                return ResourceManager.GetString("RazliciteLozinke", resourceCulture);
             }
         }
     }

@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ImePrezimeNeispravanFormat" xml:space="preserve">
+    <value>Neispravan format. Prvo slovo mora biti veliko, minimalno 3 i maximalno 20 karaktera.</value>
+  </data>
+  <data name="MinimalnaDuzina" xml:space="preserve">
+    <value>Minimalno 4 karaktera.</value>
+  </data>
+  <data name="NeispravanFormat" xml:space="preserve">
+    <value>Format nije ispravan!</value>
+  </data>
+  <data name="NeispravanOdabirUloge" xml:space="preserve">
+    <value>Morate odabrati barem jednu ulogu!</value>
+  </data>
+  <data name="NeispravanTelefon" xml:space="preserve">
+    <value>Neispravan format telefona. Ispravn primjer: 060-000-000 ili 060/000/0000 ili 0621234567</value>
+  </data>
   <data name="ObaveznoPolje" xml:space="preserve">
     <value>Ovo polje je obavezno!</value>
+  </data>
+  <data name="RazliciteLozinke" xml:space="preserve">
+    <value>Lozinke nisu iste!</value>
   </data>
 </root>

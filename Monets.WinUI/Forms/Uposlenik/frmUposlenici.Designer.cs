@@ -1,5 +1,5 @@
 ﻿
-namespace Monets.WinUI.Forms.Korisnik
+namespace Monets.WinUI.Forms.Uposlenik
 {
     partial class frmUposlenici
     {
@@ -29,14 +29,12 @@ namespace Monets.WinUI.Forms.Korisnik
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblIme = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.dgvUposlenici = new System.Windows.Forms.DataGridView();
-            this.cbAktivniUposlenici = new System.Windows.Forms.CheckBox();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
-            this.lblPrezime = new System.Windows.Forms.Label();
-            this.txtPrezime = new System.Windows.Forms.TextBox();
             this.UposlenikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +42,15 @@ namespace Monets.WinUI.Forms.Korisnik
             this.DatumZaposlenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Detalji = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Brisanje = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Deaktivacija = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbAktivniUposlenici = new System.Windows.Forms.CheckBox();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.lblPrezime = new System.Windows.Forms.Label();
+            this.txtPrezime = new System.Windows.Forms.TextBox();
+            this.btnPrethodna = new FontAwesome.Sharp.IconButton();
+            this.btnSljedeca = new FontAwesome.Sharp.IconButton();
+            this.lblStranica = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUposlenici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
@@ -77,6 +83,17 @@ namespace Monets.WinUI.Forms.Korisnik
             // 
             // dgvUposlenici
             // 
+            this.dgvUposlenici.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUposlenici.BackgroundColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Ebrima", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUposlenici.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUposlenici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUposlenici.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UposlenikId,
@@ -86,15 +103,94 @@ namespace Monets.WinUI.Forms.Korisnik
             this.DatumZaposlenja,
             this.Aktivan,
             this.Detalji,
-            this.Brisanje});
+            this.Deaktivacija});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Ebrima", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvUposlenici.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUposlenici.Location = new System.Drawing.Point(24, 134);
             this.dgvUposlenici.Name = "dgvUposlenici";
             this.dgvUposlenici.ReadOnly = true;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Ebrima", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dgvUposlenici.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUposlenici.RowTemplate.Height = 25;
-            this.dgvUposlenici.Size = new System.Drawing.Size(1162, 486);
+            this.dgvUposlenici.Size = new System.Drawing.Size(1162, 307);
             this.dgvUposlenici.TabIndex = 21;
             this.dgvUposlenici.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUposlenici_CellClick);
             this.dgvUposlenici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUposlenici_CellContentClick);
+            this.dgvUposlenici.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvUposlenici_DataBindingComplete);
+            // 
+            // UposlenikId
+            // 
+            this.UposlenikId.DataPropertyName = "UposlenikId";
+            this.UposlenikId.HeaderText = "ID";
+            this.UposlenikId.Name = "UposlenikId";
+            this.UposlenikId.ReadOnly = true;
+            this.UposlenikId.Visible = false;
+            // 
+            // Ime
+            // 
+            this.Ime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Ime.DataPropertyName = "Ime";
+            this.Ime.HeaderText = "Ime";
+            this.Ime.Name = "Ime";
+            this.Ime.ReadOnly = true;
+            // 
+            // Prezime
+            // 
+            this.Prezime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Prezime.DataPropertyName = "Prezime";
+            this.Prezime.HeaderText = "Prezime";
+            this.Prezime.Name = "Prezime";
+            this.Prezime.ReadOnly = true;
+            // 
+            // KorisničkoIme
+            // 
+            this.KorisničkoIme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.KorisničkoIme.DataPropertyName = "KorisnickoIme";
+            this.KorisničkoIme.HeaderText = "Korisničko ime";
+            this.KorisničkoIme.Name = "KorisničkoIme";
+            this.KorisničkoIme.ReadOnly = true;
+            // 
+            // DatumZaposlenja
+            // 
+            this.DatumZaposlenja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DatumZaposlenja.DataPropertyName = "DatumZaposlenja";
+            this.DatumZaposlenja.HeaderText = "Datum zaposlenja";
+            this.DatumZaposlenja.Name = "DatumZaposlenja";
+            this.DatumZaposlenja.ReadOnly = true;
+            // 
+            // Aktivan
+            // 
+            this.Aktivan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aktivan.DataPropertyName = "Status";
+            this.Aktivan.HeaderText = "Aktivan";
+            this.Aktivan.Name = "Aktivan";
+            this.Aktivan.ReadOnly = true;
+            // 
+            // Detalji
+            // 
+            this.Detalji.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Detalji.HeaderText = "Detalji";
+            this.Detalji.Name = "Detalji";
+            this.Detalji.ReadOnly = true;
+            this.Detalji.Text = "Prikaz detalja";
+            this.Detalji.ToolTipText = "Prikaz detalja";
+            this.Detalji.UseColumnTextForButtonValue = true;
+            // 
+            // Deaktivacija
+            // 
+            this.Deaktivacija.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Deaktivacija.HeaderText = "Deaktivacija";
+            this.Deaktivacija.Name = "Deaktivacija";
+            this.Deaktivacija.ReadOnly = true;
+            this.Deaktivacija.Text = "Deaktivacija";
+            this.Deaktivacija.ToolTipText = "Deaktivacija";
+            this.Deaktivacija.UseColumnTextForButtonValue = true;
             // 
             // cbAktivniUposlenici
             // 
@@ -164,79 +260,67 @@ namespace Monets.WinUI.Forms.Korisnik
             this.txtPrezime.TabIndex = 24;
             this.txtPrezime.TextChanged += new System.EventHandler(this.txtPrezime_TextChanged);
             // 
-            // UposlenikId
+            // btnPrethodna
             // 
-            this.UposlenikId.DataPropertyName = "UposlenikId";
-            this.UposlenikId.HeaderText = "ID";
-            this.UposlenikId.Name = "UposlenikId";
-            this.UposlenikId.ReadOnly = true;
-            this.UposlenikId.Visible = false;
+            this.btnPrethodna.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrethodna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.btnPrethodna.FlatAppearance.BorderSize = 0;
+            this.btnPrethodna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrethodna.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnPrethodna.IconColor = System.Drawing.Color.White;
+            this.btnPrethodna.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrethodna.IconSize = 20;
+            this.btnPrethodna.Location = new System.Drawing.Point(999, 458);
+            this.btnPrethodna.Name = "btnPrethodna";
+            this.btnPrethodna.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.btnPrethodna.Size = new System.Drawing.Size(31, 23);
+            this.btnPrethodna.TabIndex = 27;
+            this.btnPrethodna.UseVisualStyleBackColor = false;
+            this.btnPrethodna.Click += new System.EventHandler(this.btnPrethodna_Click);
             // 
-            // Ime
+            // btnSljedeca
             // 
-            this.Ime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Ime.DataPropertyName = "Ime";
-            this.Ime.HeaderText = "Ime";
-            this.Ime.Name = "Ime";
-            this.Ime.ReadOnly = true;
+            this.btnSljedeca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSljedeca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.btnSljedeca.FlatAppearance.BorderSize = 0;
+            this.btnSljedeca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSljedeca.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
+            this.btnSljedeca.IconColor = System.Drawing.Color.White;
+            this.btnSljedeca.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSljedeca.IconSize = 20;
+            this.btnSljedeca.Location = new System.Drawing.Point(1145, 457);
+            this.btnSljedeca.Name = "btnSljedeca";
+            this.btnSljedeca.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.btnSljedeca.Size = new System.Drawing.Size(31, 23);
+            this.btnSljedeca.TabIndex = 28;
+            this.btnSljedeca.UseVisualStyleBackColor = false;
+            this.btnSljedeca.Click += new System.EventHandler(this.btnSljedeca_Click);
             // 
-            // Prezime
+            // lblStranica
             // 
-            this.Prezime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Prezime.DataPropertyName = "Prezime";
-            this.Prezime.HeaderText = "Prezime";
-            this.Prezime.Name = "Prezime";
-            this.Prezime.ReadOnly = true;
-            // 
-            // KorisničkoIme
-            // 
-            this.KorisničkoIme.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.KorisničkoIme.DataPropertyName = "KorisnickoIme";
-            this.KorisničkoIme.HeaderText = "Korisničko ime";
-            this.KorisničkoIme.Name = "KorisničkoIme";
-            this.KorisničkoIme.ReadOnly = true;
-            // 
-            // DatumZaposlenja
-            // 
-            this.DatumZaposlenja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DatumZaposlenja.DataPropertyName = "DatumZaposlenja";
-            this.DatumZaposlenja.HeaderText = "Datum zaposlenja";
-            this.DatumZaposlenja.Name = "DatumZaposlenja";
-            this.DatumZaposlenja.ReadOnly = true;
-            // 
-            // Aktivan
-            // 
-            this.Aktivan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aktivan.DataPropertyName = "Status";
-            this.Aktivan.HeaderText = "Aktivan";
-            this.Aktivan.Name = "Aktivan";
-            this.Aktivan.ReadOnly = true;
-            // 
-            // Detalji
-            // 
-            this.Detalji.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Detalji.HeaderText = "Detalji";
-            this.Detalji.Name = "Detalji";
-            this.Detalji.ReadOnly = true;
-            this.Detalji.Text = "Prikaz detalja";
-            this.Detalji.ToolTipText = "Prikaz detalja";
-            this.Detalji.UseColumnTextForButtonValue = true;
-            // 
-            // Brisanje
-            // 
-            this.Brisanje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Brisanje.HeaderText = "Brisanje";
-            this.Brisanje.Name = "Brisanje";
-            this.Brisanje.ReadOnly = true;
-            this.Brisanje.Text = "Obriši";
-            this.Brisanje.ToolTipText = "Obriši";
-            this.Brisanje.UseColumnTextForButtonValue = true;
+            this.lblStranica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStranica.AutoSize = true;
+            this.lblStranica.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblStranica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
+            this.lblStranica.Location = new System.Drawing.Point(1045, 455);
+            this.lblStranica.Margin = new System.Windows.Forms.Padding(0);
+            this.lblStranica.Name = "lblStranica";
+            this.lblStranica.Size = new System.Drawing.Size(86, 26);
+            this.lblStranica.TabIndex = 29;
+            this.lblStranica.Text = "Page 2/5";
+            this.lblStranica.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmUposlenici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 698);
+            this.Controls.Add(this.lblStranica);
+            this.Controls.Add(this.btnSljedeca);
+            this.Controls.Add(this.btnPrethodna);
             this.Controls.Add(this.iconPictureBox2);
             this.Controls.Add(this.lblPrezime);
             this.Controls.Add(this.txtPrezime);
@@ -269,6 +353,9 @@ namespace Monets.WinUI.Forms.Korisnik
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.Label lblPrezime;
         private System.Windows.Forms.TextBox txtPrezime;
+        private FontAwesome.Sharp.IconButton btnPrethodna;
+        private FontAwesome.Sharp.IconButton btnSljedeca;
+        private System.Windows.Forms.Label lblStranica;
         private System.Windows.Forms.DataGridViewTextBoxColumn UposlenikId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
@@ -276,6 +363,6 @@ namespace Monets.WinUI.Forms.Korisnik
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumZaposlenja;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
         private System.Windows.Forms.DataGridViewButtonColumn Detalji;
-        private System.Windows.Forms.DataGridViewButtonColumn Brisanje;
+        private System.Windows.Forms.DataGridViewButtonColumn Deaktivacija;
     }
 }
