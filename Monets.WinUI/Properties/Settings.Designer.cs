@@ -25,7 +25,7 @@ namespace Monets.WinUI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:5001/api")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5010/api")]
         public string APIUrl {
             get {
                 return ((string)(this["APIUrl"]));
@@ -35,8 +35,8 @@ namespace Monets.WinUI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=\"localhost, 1433\";Initial Catalog=Monets;User ID=sa;Password=Password" +
-            "123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=\"monets-sql, 1433\";Initial Catalog=180070; User ID=sa;Password=Passwo" +
+            "rd123")]
         public string MonetsConnectionString {
             get {
                 return ((string)(this["MonetsConnectionString"]));
