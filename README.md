@@ -1,6 +1,11 @@
-# Monets  [not finished]
+# Monets
 
-Monets is a restaurant where the employees are using the desktop app for user overview, food and menu creation and ect., while the mobile app is used by the restaurants clients and  they can create reservations, add foods or whole menus to a reservations, pay thorugh the app, choose a table and time and similar.
+Monets is a restaurant where the employees are using the desktop app for user overview, food and menu creation and ect., while the mobile app is used by the restaurants clients and  they can create reservations, add foods to reservations, pay thorugh the app, choose a table and time and similar.
+
+## Link to mobile app 
+```
+https://github.com/jasminbumbul/Monets-mobile-app
+```
 
 ## API launching
 
