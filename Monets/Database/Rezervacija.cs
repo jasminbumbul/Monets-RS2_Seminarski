@@ -21,9 +21,12 @@ namespace Monets.Api.Database
         public string Poruka { get; set; }
         public DateTime DatumKreiranja { get; set; }
         public DateTime DatumIzmjene { get; set; }
-        public DateTime DatumRezervacije { get; set; }
+        public DateTime PocetakRezervacije { get; set; }
         public int StolId { get; set; }
         public int KlijentId { get; set; }
+        public DateTime KrajRezervacije { get; set; }
+        public bool? PotvrdjenaKlijent { get; set; }
+        public bool? OnlinePlacanje { get; set; }
 
         public virtual Klijent Klijent { get; set; }
         public virtual Stol Stol { get; set; }

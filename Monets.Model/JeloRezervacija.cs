@@ -1,4 +1,6 @@
-﻿namespace Monets.Model
+﻿using Newtonsoft.Json;
+
+namespace Monets.Model
 {
     public class JeloRezervacija
     {
@@ -9,5 +11,17 @@
 
         public virtual Jelo Jelo { get; set; }
         public virtual Rezervacija Rezervacija { get; set; }
+
+        [JsonIgnore]
+        public string NazivKategorije
+        {
+            get { return Jelo.Kategorija.Naziv; }
+        }
+
+        [JsonIgnore]
+        public string NazivJela
+        {
+            get { return Jelo.NazivJela; }
+        }
     }
 }

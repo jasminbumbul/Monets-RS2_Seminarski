@@ -77,22 +77,7 @@ namespace Monets.WinUI.Forms.Static
 
                     var x = await _apiService.Authenticate(request);
 
-                    //if (x.KorisnikUloga.Any(s => s.Uloga.Naziv == "Administrator"))
-                    //{
-                    //    MainForm frm = new MainForm(true);
-                    //    frm.Closed += (s, args) => this.Close();
-                    //    frm.Show();
-
-                    //}
-                    //else
-                    //{
-                    //    MainForm frm = new MainForm(false);
-                    //    frm.Closed += (s, args) => this.Close();
-                    //    frm.Show();
-
-                    //}
-
-                    var frm = new frmMain();
+                    var frm = new frmMain(x);
                     frm.Show();
 
                     this.Hide();
@@ -160,6 +145,33 @@ namespace Monets.WinUI.Forms.Static
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void loginPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnMinimize_MouseDown(object sender, MouseEventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRestore_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void btnClose_MouseDown(object sender, MouseEventArgs e)
         {
             Application.Exit();
         }

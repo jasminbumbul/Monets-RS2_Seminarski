@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
-#nullable disable
 
 namespace Monets.Model
 {

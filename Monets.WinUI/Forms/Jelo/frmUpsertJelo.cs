@@ -41,6 +41,15 @@ namespace Monets.WinUI.Forms.Jelo
             txtNazivJela.Text = jelo.NazivJela;
             txtVrijemeIzrade.Text = jelo.VrijemeIzradeUminutama.ToString();
             txtCijena.Text = jelo.Cijena.ToString();
+
+            if (!string.IsNullOrEmpty(jelo.OpisJela))
+            {
+                txtOpisJela.Text = jelo.OpisJela.ToString();
+            }
+            else
+            {
+                txtOpisJela.Text = "";
+            }
             await ucitajSliku(jelo.Slika);
         }
 
@@ -86,6 +95,7 @@ namespace Monets.WinUI.Forms.Jelo
                     request.KategorijaId = Convert.ToInt32(cmbKategorija.SelectedValue);
                     request.NazivJela = txtNazivJela.Text;
                     request.VrijemeIzradeUminutama = Int16.Parse(txtVrijemeIzrade.Text);
+                    request.OpisJela = txtOpisJela.Text;
 
                     var response = await jeloService.Update<Model.Jelo>(jelo.JeloId, request);
 
@@ -115,6 +125,7 @@ namespace Monets.WinUI.Forms.Jelo
                     request.KategorijaId = Convert.ToInt32(cmbKategorija.SelectedValue);
                     request.NazivJela = txtNazivJela.Text;
                     request.VrijemeIzradeUminutama = Int16.Parse(txtVrijemeIzrade.Text);
+                    request.OpisJela = txtOpisJela.Text;
                     var response = await jeloService.Insert<Model.Jelo>(request);
 
                     if (response != null)
@@ -147,6 +158,11 @@ namespace Monets.WinUI.Forms.Jelo
                 Image img = Image.FromFile(filename);
                 pbSlika.Image = img;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

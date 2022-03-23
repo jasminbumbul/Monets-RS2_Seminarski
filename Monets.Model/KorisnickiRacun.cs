@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace Monets.Model
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Email { get; set; }
+        public bool EmailVerified { get; set; }
         public string Telefon { get; set; }
         public string Adresa { get; set; }
         public DateTime DatumRodjenja { get; set; }
@@ -24,5 +26,11 @@ namespace Monets.Model
 
         public virtual Uposlenik Uposlenik { get; set; }
         public virtual Klijent Klijent { get; set; }
+
+        [JsonIgnore]
+        public string ImePrezime
+        {
+            get { return Ime + " " + Prezime; }
+        }
     }
 }

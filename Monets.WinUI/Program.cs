@@ -1,4 +1,4 @@
-using Monets.WinUI.Forms.Meni;
+using Monets.WinUI.Forms.Izvjestaji;
 using Monets.WinUI.Forms.Static;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,6 @@ namespace Monets.WinUI
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogin());

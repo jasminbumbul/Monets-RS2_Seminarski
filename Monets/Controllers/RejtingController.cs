@@ -8,11 +8,13 @@ using Monets.Api.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Monets.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RejtingController : BaseCRUDController<Model.Rejting, RejtingSearchRequest, RejtingUpsertRequest, RejtingUpsertRequest>
     {
         private IRejtingService _service;
@@ -20,5 +22,14 @@ namespace Monets.Api.Controllers
         {
             _service = service;
         }
+
+
+        [Route("GetUkupanRejtingZaJelo")]
+        [HttpGet]
+        public async Task<double> GetUkupanRejtingZaJelo(int jeloId)
+        {
+            return await _service.GetUkupanRejtingZaJelo(jeloId);
+        }
+
     }
 }

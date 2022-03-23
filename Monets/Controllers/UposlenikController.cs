@@ -22,7 +22,7 @@ namespace Monets.Api.Controllers
             this.service = service;
         }
 
-        [Authorize(Roles = "Administrator, Uposlenik")]
+        [Authorize(Roles = "Admin, Uposlenik")]
         [HttpPost("Login")]
         public async Task<Model.Uposlenik> Login(AuthenticationRequest request)
         {

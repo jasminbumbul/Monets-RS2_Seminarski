@@ -26,7 +26,7 @@ namespace Monets.Model.Requests
         [Required]
         public string Lozinka { get; set; }
         [Required]
-        public string LozinkaPotrvda { get; set; }
+        public string LozinkaPotvrda { get; set; }
         [Required]
         public int GradId { get; set; }
         [Required]

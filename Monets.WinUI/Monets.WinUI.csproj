@@ -2,9 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net472</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Reports\BrojJelaPoRezervacijiReport.rdlc" />
+    <None Remove="Reports\TransakcijePoKlijentuReport.rdlc" />
+  </ItemGroup>
 
   <ItemGroup>
     <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
@@ -16,10 +21,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CircularProgressBar" Version="2.8.0.16" />
+    <EmbeddedResource Include="Reports\BrojJelaPoRezervacijiReport.rdlc" />
+    <EmbeddedResource Include="Reports\TransakcijePoKlijentuReport.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Flurl.Http" Version="3.2.0" />
     <PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="140.1000.523" />
+    <PackageReference Include="Microsoft.SqlServer.Types" Version="14.0.314.76" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PagedList" Version="1.17.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +44,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Helper\ProgressBarColor.cs" />
+    <Compile Update="MonetsDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MonetsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="MonetsDataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MonetsDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -48,6 +79,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="MonetsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MonetsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="MonetsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MonetsDataSet1.Designer.cs</LastGenOutput>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

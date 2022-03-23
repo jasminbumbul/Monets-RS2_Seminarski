@@ -108,7 +108,7 @@ namespace Monets.WinUI.Forms.Klijent
                     request.Adresa = txtAdresa.Text;
                     request.GradId = (int)cmbGrad.SelectedValue;
                     request.Lozinka = txtLozinka.Text;
-                    request.LozinkaPotrvda = txtPotvrdaLozinke.Text;
+                    request.LozinkaPotvrda = txtPotvrdaLozinke.Text;
                     request.Telefon = txtTelefon.Text;
                     if (rbDa.Checked == true)
                     {
@@ -319,5 +319,15 @@ namespace Monets.WinUI.Forms.Klijent
             return true;
         }
         #endregion
+
+        private void frmUpdateKlijenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbGrad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace Monets.Model
 {
     public partial class Kategorija
@@ -14,6 +12,8 @@ namespace Monets.Model
 
         public int KategorijaId { get; set; }
         public string Naziv { get; set; }
+        public byte[] Slika { get; set; }
+        public string SlikaPutanja { get; set; }
 
         //public virtual ICollection<Jelo> Jelo { get; set; }
     }

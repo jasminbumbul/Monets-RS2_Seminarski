@@ -1,17 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
 
 namespace Monets.Api.Database
 {
-    public class Grad
+    public partial class Grad
     {
         public Grad()
         {
-            Uposlenici = new HashSet<Uposlenik>();
+            Klijent = new HashSet<Klijent>();
+            Uposlenik = new HashSet<Uposlenik>();
         }
 
         public int GradId { get; set; }
         public string Naziv { get; set; }
 
-        public virtual ICollection<Uposlenik> Uposlenici { get; set; }
+        public virtual ICollection<Klijent> Klijent { get; set; }
+        public virtual ICollection<Uposlenik> Uposlenik { get; set; }
     }
 }

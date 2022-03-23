@@ -7,6 +7,7 @@ namespace Monets.Model.Requests
     public class JeloUpsertRequest
     {
         public string NazivJela { get; set; }
+        public string OpisJela { get; set; }
         public int VrijemeIzradeUminutama { get; set; }
         public double Cijena { get; set; }
         public int KategorijaId { get; set; }

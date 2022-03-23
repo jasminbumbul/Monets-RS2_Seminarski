@@ -40,6 +40,7 @@ namespace Monets.WinUI.Forms.Klijent
             }
 
             listaKlijenata = await klijentService.Get<List<Model.Klijent>>(search);
+            listaKlijenata.ForEach(x => x.DatumKreiranja = x.KorisnickiRacun.DatumKreiranja);
             listaKlijenata = listaKlijenata.OrderBy(x => x.Ime).ThenBy(x => x.Prezime).ThenBy(x => x.Status).ToList();
             pagedListaKlijenata = listaKlijenata.ToPagedList(pageNumber, pageSize);
             dgvKlijenti.AutoGenerateColumns = false;
@@ -106,11 +107,6 @@ namespace Monets.WinUI.Forms.Klijent
             d.FlatStyle = FlatStyle.Popup;
             d.DefaultCellStyle.ForeColor = Color.White;
             d.DefaultCellStyle.BackColor = Color.FromArgb(42, 2, 82);
-
-            DataGridViewButtonColumn f = (DataGridViewButtonColumn)dgvKlijenti.Columns["Transakcije"];
-            f.FlatStyle = FlatStyle.Popup;
-            f.DefaultCellStyle.ForeColor = Color.Black;
-            f.DefaultCellStyle.BackColor = Color.FromArgb(251, 175, 2);
         }
 
         private async void dgvKlijenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -142,10 +138,6 @@ namespace Monets.WinUI.Forms.Klijent
             {
                 var klijent = await klijentService.GetById<Model.Klijent>(id);
                 frmMain.INSTANCE.loadUpdateKlijenta(klijent);
-            }
-            else if (dgvKlijenti.Columns[e.ColumnIndex].Name == "Transakcije" && e.RowIndex != -1)
-            {
-                //load transakcije
             }
         }
 

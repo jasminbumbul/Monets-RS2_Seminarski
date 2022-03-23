@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  monets-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password123
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - monetsnet
+
+  monets-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=monets-sql,1433;Database=180070;User=sa;Password=Password123;ConnectRetryCount=0
+    ports:
+      - 5010:5010
+    networks:
+      - monetsnet      
+    links:
+      - monets-sql
+    depends_on:
+      - monets-sql
+
+networks:
+  monetsnet:
+    driver: bridge       

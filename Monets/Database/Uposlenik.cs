@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Monets.Api.Database
 {
-    public class Uposlenik
+    public partial class Uposlenik
     {
         public Uposlenik()
         {
@@ -15,8 +17,9 @@ namespace Monets.Api.Database
         public bool? Status { get; set; }
         public int GradId { get; set; }
         public int KorisnickiRacunId { get; set; }
-        public virtual KorisnickiRacun KorisnickiRacun { get; set; }
+
         public virtual Grad Grad { get; set; }
+        public virtual KorisnickiRacun KorisnickiRacun { get; set; }
         public virtual ICollection<UposlenikUloga> UposlenikUloga { get; set; }
     }
 }

@@ -75,9 +75,9 @@ namespace Monets.WinUI.Forms.Klijent
             this.pbLoading.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLoading.Image = ((System.Drawing.Image)(resources.GetObject("pbLoading.Image")));
-            this.pbLoading.Location = new System.Drawing.Point(463, -1);
+            this.pbLoading.Location = new System.Drawing.Point(292, 12);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(110, 56);
+            this.pbLoading.Size = new System.Drawing.Size(94, 49);
             this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLoading.TabIndex = 46;
             this.pbLoading.TabStop = false;
@@ -89,12 +89,12 @@ namespace Monets.WinUI.Forms.Klijent
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Corbel", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.Font = new System.Drawing.Font("Corbel", 10.75F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(547, 304);
+            this.btnSave.Location = new System.Drawing.Point(597, 289);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(180, 54);
+            this.btnSave.Size = new System.Drawing.Size(154, 47);
             this.btnSave.TabIndex = 42;
             this.btnSave.Text = "Spremi promjene";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -104,9 +104,9 @@ namespace Monets.WinUI.Forms.Klijent
             // 
             this.groupBox2.Controls.Add(this.btnBrowse);
             this.groupBox2.Controls.Add(this.pbSlika);
-            this.groupBox2.Location = new System.Drawing.Point(797, 71);
+            this.groupBox2.Location = new System.Drawing.Point(597, 26);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 223);
+            this.groupBox2.Size = new System.Drawing.Size(154, 193);
             this.groupBox2.TabIndex = 43;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Slika";
@@ -118,12 +118,12 @@ namespace Monets.WinUI.Forms.Klijent
             this.btnBrowse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
             this.btnBrowse.FlatAppearance.BorderSize = 0;
             this.btnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowse.Font = new System.Drawing.Font("Corbel", 10.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBrowse.Font = new System.Drawing.Font("Corbel", 10.75F, System.Drawing.FontStyle.Bold);
             this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(17, 28);
+            this.btnBrowse.Location = new System.Drawing.Point(15, 24);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(0);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(148, 27);
+            this.btnBrowse.Size = new System.Drawing.Size(127, 23);
             this.btnBrowse.TabIndex = 27;
             this.btnBrowse.Text = "Browse ";
             this.btnBrowse.UseVisualStyleBackColor = false;
@@ -133,9 +133,9 @@ namespace Monets.WinUI.Forms.Klijent
             // 
             this.pbSlika.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
             this.pbSlika.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbSlika.Location = new System.Drawing.Point(17, 63);
+            this.pbSlika.Location = new System.Drawing.Point(15, 55);
             this.pbSlika.Name = "pbSlika";
-            this.pbSlika.Size = new System.Drawing.Size(148, 149);
+            this.pbSlika.Size = new System.Drawing.Size(127, 129);
             this.pbSlika.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSlika.TabIndex = 25;
             this.pbSlika.TabStop = false;
@@ -144,6 +144,7 @@ namespace Monets.WinUI.Forms.Klijent
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.rbNe);
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.rbDa);
             this.groupBox1.Controls.Add(this.label11);
@@ -167,9 +168,9 @@ namespace Monets.WinUI.Forms.Klijent
             this.groupBox1.Controls.Add(this.txtPrezime);
             this.groupBox1.Controls.Add(this.lbl1);
             this.groupBox1.Controls.Add(this.txtIme);
-            this.groupBox1.Location = new System.Drawing.Point(250, 61);
+            this.groupBox1.Location = new System.Drawing.Point(39, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(747, 386);
+            this.groupBox1.Size = new System.Drawing.Size(781, 366);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacije o klijentu";
@@ -177,8 +178,8 @@ namespace Monets.WinUI.Forms.Klijent
             // rbNe
             // 
             this.rbNe.AutoSize = true;
-            this.rbNe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNe.Location = new System.Drawing.Point(679, 264);
+            this.rbNe.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.rbNe.Location = new System.Drawing.Point(711, 249);
             this.rbNe.Name = "rbNe";
             this.rbNe.Size = new System.Drawing.Size(48, 25);
             this.rbNe.TabIndex = 57;
@@ -189,8 +190,8 @@ namespace Monets.WinUI.Forms.Klijent
             // rbDa
             // 
             this.rbDa.AutoSize = true;
-            this.rbDa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbDa.Location = new System.Drawing.Point(547, 264);
+            this.rbDa.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.rbDa.Location = new System.Drawing.Point(607, 249);
             this.rbDa.Name = "rbDa";
             this.rbDa.Size = new System.Drawing.Size(47, 25);
             this.rbDa.TabIndex = 56;
@@ -201,9 +202,9 @@ namespace Monets.WinUI.Forms.Klijent
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label11.Location = new System.Drawing.Point(597, 247);
+            this.label11.Location = new System.Drawing.Point(650, 225);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 23);
@@ -214,9 +215,9 @@ namespace Monets.WinUI.Forms.Klijent
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label8.Location = new System.Drawing.Point(13, 304);
+            this.label8.Location = new System.Drawing.Point(11, 263);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 23);
@@ -227,20 +228,20 @@ namespace Monets.WinUI.Forms.Klijent
             // txtLozinka
             // 
             this.txtLozinka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtLozinka.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtLozinka.Location = new System.Drawing.Point(13, 333);
+            this.txtLozinka.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtLozinka.Location = new System.Drawing.Point(11, 289);
             this.txtLozinka.Multiline = true;
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.PasswordChar = '●';
-            this.txtLozinka.Size = new System.Drawing.Size(200, 25);
+            this.txtLozinka.Size = new System.Drawing.Size(172, 22);
             this.txtLozinka.TabIndex = 50;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label9.Location = new System.Drawing.Point(254, 304);
+            this.label9.Location = new System.Drawing.Point(218, 263);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(129, 23);
@@ -252,39 +253,40 @@ namespace Monets.WinUI.Forms.Klijent
             // 
             this.cmbGrad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGrad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.cmbGrad.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbGrad.Font = new System.Drawing.Font("Corbel", 12F);
             this.cmbGrad.FormattingEnabled = true;
-            this.cmbGrad.Location = new System.Drawing.Point(255, 260);
+            this.cmbGrad.Location = new System.Drawing.Point(218, 228);
             this.cmbGrad.Name = "cmbGrad";
-            this.cmbGrad.Size = new System.Drawing.Size(200, 27);
+            this.cmbGrad.Size = new System.Drawing.Size(172, 27);
             this.cmbGrad.TabIndex = 43;
+            this.cmbGrad.SelectedIndexChanged += new System.EventHandler(this.cmbGrad_SelectedIndexChanged);
             // 
             // txtPotvrdaLozinke
             // 
             this.txtPotvrdaLozinke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtPotvrdaLozinke.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPotvrdaLozinke.Location = new System.Drawing.Point(254, 333);
+            this.txtPotvrdaLozinke.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPotvrdaLozinke.Location = new System.Drawing.Point(218, 289);
             this.txtPotvrdaLozinke.Multiline = true;
             this.txtPotvrdaLozinke.Name = "txtPotvrdaLozinke";
             this.txtPotvrdaLozinke.PasswordChar = '●';
-            this.txtPotvrdaLozinke.Size = new System.Drawing.Size(200, 25);
+            this.txtPotvrdaLozinke.Size = new System.Drawing.Size(172, 22);
             this.txtPotvrdaLozinke.TabIndex = 48;
             // 
             // dtpDatumRodjenja
             // 
-            this.dtpDatumRodjenja.CalendarFont = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpDatumRodjenja.CalendarFont = new System.Drawing.Font("Corbel", 9F);
             this.dtpDatumRodjenja.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.dtpDatumRodjenja.Location = new System.Drawing.Point(13, 199);
+            this.dtpDatumRodjenja.Location = new System.Drawing.Point(11, 172);
             this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
-            this.dtpDatumRodjenja.Size = new System.Drawing.Size(200, 23);
+            this.dtpDatumRodjenja.Size = new System.Drawing.Size(172, 20);
             this.dtpDatumRodjenja.TabIndex = 47;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label6.Location = new System.Drawing.Point(13, 168);
+            this.label6.Location = new System.Drawing.Point(11, 146);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 23);
@@ -295,9 +297,9 @@ namespace Monets.WinUI.Forms.Klijent
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label7.Location = new System.Drawing.Point(13, 94);
+            this.label7.Location = new System.Drawing.Point(11, 81);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(124, 23);
@@ -308,19 +310,19 @@ namespace Monets.WinUI.Forms.Klijent
             // txtKorisnickoIme
             // 
             this.txtKorisnickoIme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtKorisnickoIme.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(13, 123);
+            this.txtKorisnickoIme.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtKorisnickoIme.Location = new System.Drawing.Point(11, 107);
             this.txtKorisnickoIme.Multiline = true;
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
-            this.txtKorisnickoIme.Size = new System.Drawing.Size(200, 25);
+            this.txtKorisnickoIme.Size = new System.Drawing.Size(172, 22);
             this.txtKorisnickoIme.TabIndex = 44;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label4.Location = new System.Drawing.Point(254, 234);
+            this.label4.Location = new System.Drawing.Point(218, 203);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 23);
@@ -331,9 +333,9 @@ namespace Monets.WinUI.Forms.Klijent
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label5.Location = new System.Drawing.Point(13, 234);
+            this.label5.Location = new System.Drawing.Point(11, 203);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 23);
@@ -344,19 +346,19 @@ namespace Monets.WinUI.Forms.Klijent
             // txtAdresa
             // 
             this.txtAdresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtAdresa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAdresa.Location = new System.Drawing.Point(13, 263);
+            this.txtAdresa.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtAdresa.Location = new System.Drawing.Point(11, 228);
             this.txtAdresa.Multiline = true;
             this.txtAdresa.Name = "txtAdresa";
-            this.txtAdresa.Size = new System.Drawing.Size(200, 25);
+            this.txtAdresa.Size = new System.Drawing.Size(172, 22);
             this.txtAdresa.TabIndex = 39;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label2.Location = new System.Drawing.Point(254, 94);
+            this.label2.Location = new System.Drawing.Point(218, 81);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 23);
@@ -367,19 +369,19 @@ namespace Monets.WinUI.Forms.Klijent
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(254, 123);
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtEmail.Location = new System.Drawing.Point(218, 107);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 25);
+            this.txtEmail.Size = new System.Drawing.Size(172, 22);
             this.txtEmail.TabIndex = 37;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label3.Location = new System.Drawing.Point(254, 168);
+            this.label3.Location = new System.Drawing.Point(218, 146);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 23);
@@ -390,19 +392,19 @@ namespace Monets.WinUI.Forms.Klijent
             // txtTelefon
             // 
             this.txtTelefon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtTelefon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTelefon.Location = new System.Drawing.Point(254, 197);
+            this.txtTelefon.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtTelefon.Location = new System.Drawing.Point(218, 171);
             this.txtTelefon.Multiline = true;
             this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(200, 25);
+            this.txtTelefon.Size = new System.Drawing.Size(172, 22);
             this.txtTelefon.TabIndex = 35;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.label1.Location = new System.Drawing.Point(254, 30);
+            this.label1.Location = new System.Drawing.Point(218, 26);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 23);
@@ -413,19 +415,19 @@ namespace Monets.WinUI.Forms.Klijent
             // txtPrezime
             // 
             this.txtPrezime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtPrezime.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrezime.Location = new System.Drawing.Point(254, 59);
+            this.txtPrezime.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPrezime.Location = new System.Drawing.Point(218, 51);
             this.txtPrezime.Multiline = true;
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(200, 25);
+            this.txtPrezime.Size = new System.Drawing.Size(172, 22);
             this.txtPrezime.TabIndex = 33;
             // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
-            this.lbl1.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl1.Font = new System.Drawing.Font("Corbel", 14.25F);
             this.lbl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lbl1.Location = new System.Drawing.Point(13, 30);
+            this.lbl1.Location = new System.Drawing.Point(11, 26);
             this.lbl1.Margin = new System.Windows.Forms.Padding(0);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(40, 23);
@@ -436,20 +438,20 @@ namespace Monets.WinUI.Forms.Klijent
             // txtIme
             // 
             this.txtIme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            this.txtIme.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIme.Location = new System.Drawing.Point(13, 59);
+            this.txtIme.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtIme.Location = new System.Drawing.Point(11, 51);
             this.txtIme.Multiline = true;
             this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(200, 25);
+            this.txtIme.Size = new System.Drawing.Size(172, 22);
             this.txtIme.TabIndex = 31;
             // 
             // lblNaslov
             // 
-            this.lblNaslov.Font = new System.Drawing.Font("Corbel", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblNaslov.Font = new System.Drawing.Font("Corbel", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lblNaslov.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lblNaslov.Location = new System.Drawing.Point(250, 9);
+            this.lblNaslov.Location = new System.Drawing.Point(39, 22);
             this.lblNaslov.Name = "lblNaslov";
-            this.lblNaslov.Size = new System.Drawing.Size(246, 36);
+            this.lblNaslov.Size = new System.Drawing.Size(211, 39);
             this.lblNaslov.TabIndex = 41;
             this.lblNaslov.Text = "Detalji klijenta";
             // 
@@ -463,16 +465,18 @@ namespace Monets.WinUI.Forms.Klijent
             // 
             // frmUpdateKlijenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 476);
+            this.ClientSize = new System.Drawing.Size(1041, 605);
             this.Controls.Add(this.pbLoading);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblNaslov);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(1041, 605);
+            this.MinimumSize = new System.Drawing.Size(1041, 605);
             this.Name = "frmUpdateKlijenta";
             this.Text = "frmUpdateKlijenta";
+            this.Load += new System.EventHandler(this.frmUpdateKlijenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLoading)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlika)).EndInit();

@@ -9,5 +9,6 @@ namespace Monets.Api.Interfaces
 {
     public interface IRejtingService : ICRUDService<Model.Rejting,RejtingSearchRequest,RejtingUpsertRequest,RejtingUpsertRequest>
     {
+        public Task<double> GetUkupanRejtingZaJelo(int jeloId);
     }
 }

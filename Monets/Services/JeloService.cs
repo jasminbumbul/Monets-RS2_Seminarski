@@ -23,11 +23,21 @@ namespace Monets.Api.Services
 
         public async override Task<List<Model.Jelo>> Get(JeloSearchRequest search = null)    
         {
-            var entity = Context.Set<Database.Jelo>().Include("Kategorija").AsQueryable();
+            var entity = Context.Set<Database.Jelo>().Include("Rejting").Include("Kategorija").AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(search?.NazivJela))
+            if (!string.IsNullOrWhiteSpace(search?.Naziv))
             {
-                entity = entity.Where(x => x.NazivJela.Contains(search.NazivJela));
+                entity = entity.Where(x => x.NazivJela.Contains(search.Naziv));
+            }
+
+            if (search.JeloId != 0)
+            {
+                entity = entity.Where(x => x.JeloId==search.JeloId);
+            }
+
+            if (search.KategorijaId != 0)
+            {
+                entity = entity.Where(x => x.KategorijaId == search.KategorijaId);
             }
 
             var list = await entity.ToListAsync();
@@ -40,6 +50,43 @@ namespace Monets.Api.Services
             }
 
             return result;
+        }
+
+        private class BrojJelaURezervaciji { public int broj { get; set; } public int jeloId { get; set; }}
+
+        public async Task<int> GetPreporucenoJelo(int klijentId)
+        {
+            var listaJelaKlijenta = await Context.JeloRezervacija.Include("Rezervacija.Klijent").Where(x => x.Rezervacija.KlijentId == klijentId).ToListAsync();
+
+            List<BrojJelaURezervaciji> brojJelaURezervaciji = new List<BrojJelaURezervaciji>();
+            bool flag = false;
+            int tempJeloId = 1;
+
+            foreach (var item in listaJelaKlijenta)
+            {
+                foreach (var item2 in brojJelaURezervaciji)
+                {
+                    if (item2.jeloId == item.JeloId)
+                    {
+                        item2.broj++;
+                        flag = true;
+                        tempJeloId = item.JeloId;
+                    }
+                }
+                if (!flag)
+                {
+                    brojJelaURezervaciji.Add(new BrojJelaURezervaciji { broj=1, jeloId = item.JeloId });
+                }
+            }
+
+            int najviseKoristenoJelo = brojJelaURezervaciji.OrderByDescending(x=> x.broj).Take(1).Select(x=> x.jeloId).FirstOrDefault();
+            if(najviseKoristenoJelo == 0)
+            {
+                najviseKoristenoJelo = tempJeloId;
+            }
+
+
+            return najviseKoristenoJelo;
         }
 
         public async override Task<Model.Jelo> GetById(int id)
@@ -158,6 +205,7 @@ namespace Monets.Api.Services
         {
             if (request.NazivJela != null && request.NazivJela != entity.NazivJela) entity.NazivJela = request.NazivJela;
             if (request.Cijena != entity.Cijena) entity.Cijena = request.Cijena;
+            if (request.OpisJela != entity.OpisJela) entity.OpisJela = request.OpisJela;
             if (request.VrijemeIzradeUminutama != entity.VrijemeIzradeUminutama) entity.VrijemeIzradeUminutama = request.VrijemeIzradeUminutama;
             if (request.KategorijaId != entity.KategorijaId) entity.KategorijaId = request.KategorijaId;
             if (request.SlikaPutanja != null && request.Slika != null && request.SlikaPutanja != entity.SlikaPutanja) entity.SlikaPutanja = await imageHelper.ReplaceImage("Jelo", entity.JeloId, entity.SlikaPutanja, request.SlikaPutanja, request.Slika);
@@ -170,6 +218,7 @@ namespace Monets.Api.Services
         {
             if (request.NazivJela != entity.NazivJela) return true;
             if (request.Cijena != entity.Cijena) return true;
+            if (request.OpisJela != entity.OpisJela) return true;
             if (request.VrijemeIzradeUminutama!= entity.VrijemeIzradeUminutama) return true;
             if (request.KategorijaId != entity.KategorijaId) return true;
             if (request.SlikaPutanja != null && request.Slika != null && request.SlikaPutanja != entity.SlikaPutanja) return true;

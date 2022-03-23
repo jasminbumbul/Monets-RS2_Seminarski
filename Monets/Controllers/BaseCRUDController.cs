@@ -29,6 +29,7 @@ namespace Monets.Api.Controllers
             return await _crudService.Update(id, request);
         }
 
+        [Authorize(Roles = "Admin, Uposlenik")]
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {

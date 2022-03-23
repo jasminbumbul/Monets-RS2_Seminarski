@@ -9,5 +9,6 @@ namespace Monets.Api.Interfaces
 {
     public interface IJeloService : ICRUDService<Model.Jelo,JeloSearchRequest, JeloUpsertRequest, JeloUpsertRequest>
     {
+        public Task<int> GetPreporucenoJelo(int klijentId);
     }
 }

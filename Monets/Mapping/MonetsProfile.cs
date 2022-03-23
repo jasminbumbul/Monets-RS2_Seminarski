@@ -25,6 +25,7 @@ namespace Monets.Mapping
             CreateMap<MeniUpsertRequest, Meni>();
 
             CreateMap<JeloMeni, Model.JeloMeni>();
+            CreateMap<JeloRezervacija, Model.JeloRezervacija>();
 
             CreateMap<Rejting, Model.Rejting>();
             CreateMap<RejtingSearchRequest, Rejting>();
@@ -34,6 +35,9 @@ namespace Monets.Mapping
             CreateMap<StolSearchRequest, Stol>();
             CreateMap<StolUpsertRequest, Stol>();
 
+            CreateMap<Favorit, Model.Favorit>().ReverseMap();
+            CreateMap<Transakcija, Model.Transakcija>().ReverseMap();
+
             CreateMap<Rezervacija, Model.Rezervacija>();
             CreateMap<RezervacijaSearchRequest, Rezervacija>();
             CreateMap<RezervacijaUpsertRequest, Rezervacija>();
@@ -42,6 +46,8 @@ namespace Monets.Mapping
             CreateMap<UposlenikSearchRequest, Uposlenik>().ReverseMap(); ;
             CreateMap<UposlenikInsertRequest, Uposlenik>().ReverseMap(); ;
             CreateMap<UposlenikUpdateRequest, Uposlenik>().ReverseMap(); ;
+
+            CreateMap<KorisnickiRacun, Model.KorisnickiRacun>().ReverseMap();
 
             CreateMap<Klijent, Model.Klijent>().ReverseMap();
             CreateMap<KlijentSearchRequest, Klijent>().ReverseMap();
@@ -60,11 +66,6 @@ namespace Monets.Mapping
             CreateMap<KorisnickiRacun, UposlenikUpdateRequest>().ReverseMap();
 
             CreateMap<KorisnickiRacun, Model.AuthKorisnickiRacun>().ReverseMap();
-
-
-            /*Pošto sam sve zajednicke atribute clanova i uposlenika stavio u tabelu korisnicki nalog
-         samo sam na maperu prepisao nacin na koji ce mapirati elemente u modelu, kako bi prikaz
-         izgledao preglednije i jednostavnije za raditi sa njim.*/
 
             CreateMap<Klijent, Model.Klijent>()
                .ForMember(s => s.Ime, x => x.MapFrom(y => y.KorisnickiRacun.Ime))

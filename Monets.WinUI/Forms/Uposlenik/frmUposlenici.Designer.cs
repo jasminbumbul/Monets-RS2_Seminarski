@@ -59,9 +59,9 @@ namespace Monets.WinUI.Forms.Uposlenik
             // lblIme
             // 
             this.lblIme.AutoSize = true;
-            this.lblIme.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIme.Font = new System.Drawing.Font("Corbel", 15.75F);
             this.lblIme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lblIme.Location = new System.Drawing.Point(49, 14);
+            this.lblIme.Location = new System.Drawing.Point(42, 12);
             this.lblIme.Margin = new System.Windows.Forms.Padding(0);
             this.lblIme.Name = "lblIme";
             this.lblIme.Size = new System.Drawing.Size(186, 26);
@@ -72,23 +72,22 @@ namespace Monets.WinUI.Forms.Uposlenik
             // txtIme
             // 
             this.txtIme.BackColor = System.Drawing.Color.White;
-            this.txtIme.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtIme.Location = new System.Drawing.Point(24, 43);
+            this.txtIme.Font = new System.Drawing.Font("Corbel", 12F);
+            this.txtIme.Location = new System.Drawing.Point(21, 44);
             this.txtIme.Multiline = true;
             this.txtIme.Name = "txtIme";
-            this.txtIme.PlaceholderText = "John";
-            this.txtIme.Size = new System.Drawing.Size(205, 30);
+            this.txtIme.Size = new System.Drawing.Size(176, 27);
             this.txtIme.TabIndex = 19;
             this.txtIme.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dgvUposlenici
             // 
-            this.dgvUposlenici.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvUposlenici.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUposlenici.BackgroundColor = System.Drawing.Color.Lavender;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Ebrima", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Ebrima", 12.75F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -106,19 +105,19 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.Deaktivacija});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Ebrima", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Ebrima", 12.75F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvUposlenici.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUposlenici.Location = new System.Drawing.Point(24, 134);
+            this.dgvUposlenici.Location = new System.Drawing.Point(21, 116);
             this.dgvUposlenici.Name = "dgvUposlenici";
             this.dgvUposlenici.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Ebrima", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Ebrima", 12.75F);
             this.dgvUposlenici.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvUposlenici.RowTemplate.Height = 25;
-            this.dgvUposlenici.Size = new System.Drawing.Size(1162, 307);
+            this.dgvUposlenici.Size = new System.Drawing.Size(996, 266);
             this.dgvUposlenici.TabIndex = 21;
             this.dgvUposlenici.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUposlenici_CellClick);
             this.dgvUposlenici.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUposlenici_CellContentClick);
@@ -197,9 +196,9 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.cbAktivniUposlenici.AutoSize = true;
             this.cbAktivniUposlenici.Checked = true;
             this.cbAktivniUposlenici.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbAktivniUposlenici.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbAktivniUposlenici.Font = new System.Drawing.Font("Corbel", 12F);
             this.cbAktivniUposlenici.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.cbAktivniUposlenici.Location = new System.Drawing.Point(24, 89);
+            this.cbAktivniUposlenici.Location = new System.Drawing.Point(21, 77);
             this.cbAktivniUposlenici.Name = "cbAktivniUposlenici";
             this.cbAktivniUposlenici.Size = new System.Drawing.Size(239, 23);
             this.cbAktivniUposlenici.TabIndex = 22;
@@ -214,10 +213,10 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 22;
-            this.iconPictureBox1.Location = new System.Drawing.Point(24, 17);
+            this.iconPictureBox1.IconSize = 19;
+            this.iconPictureBox1.Location = new System.Drawing.Point(21, 15);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(22, 23);
+            this.iconPictureBox1.Size = new System.Drawing.Size(19, 20);
             this.iconPictureBox1.TabIndex = 23;
             this.iconPictureBox1.TabStop = false;
             // 
@@ -228,19 +227,19 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox2.IconSize = 22;
-            this.iconPictureBox2.Location = new System.Drawing.Point(260, 17);
+            this.iconPictureBox2.IconSize = 19;
+            this.iconPictureBox2.Location = new System.Drawing.Point(223, 15);
             this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(22, 23);
+            this.iconPictureBox2.Size = new System.Drawing.Size(19, 20);
             this.iconPictureBox2.TabIndex = 26;
             this.iconPictureBox2.TabStop = false;
             // 
             // lblPrezime
             // 
             this.lblPrezime.AutoSize = true;
-            this.lblPrezime.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPrezime.Font = new System.Drawing.Font("Corbel", 15.75F);
             this.lblPrezime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lblPrezime.Location = new System.Drawing.Point(285, 14);
+            this.lblPrezime.Location = new System.Drawing.Point(244, 12);
             this.lblPrezime.Margin = new System.Windows.Forms.Padding(0);
             this.lblPrezime.Name = "lblPrezime";
             this.lblPrezime.Size = new System.Drawing.Size(223, 26);
@@ -251,19 +250,17 @@ namespace Monets.WinUI.Forms.Uposlenik
             // txtPrezime
             // 
             this.txtPrezime.BackColor = System.Drawing.Color.White;
-            this.txtPrezime.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrezime.Location = new System.Drawing.Point(260, 43);
+            this.txtPrezime.Font = new System.Drawing.Font("Corbel", 12F);
+            this.txtPrezime.Location = new System.Drawing.Point(223, 44);
             this.txtPrezime.Multiline = true;
             this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.PlaceholderText = "Doe";
-            this.txtPrezime.Size = new System.Drawing.Size(248, 30);
+            this.txtPrezime.Size = new System.Drawing.Size(213, 27);
             this.txtPrezime.TabIndex = 24;
             this.txtPrezime.TextChanged += new System.EventHandler(this.txtPrezime_TextChanged);
             // 
             // btnPrethodna
             // 
-            this.btnPrethodna.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrethodna.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPrethodna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
             this.btnPrethodna.FlatAppearance.BorderSize = 0;
             this.btnPrethodna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -271,18 +268,17 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.btnPrethodna.IconColor = System.Drawing.Color.White;
             this.btnPrethodna.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrethodna.IconSize = 20;
-            this.btnPrethodna.Location = new System.Drawing.Point(999, 458);
+            this.btnPrethodna.Location = new System.Drawing.Point(856, 397);
             this.btnPrethodna.Name = "btnPrethodna";
             this.btnPrethodna.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.btnPrethodna.Size = new System.Drawing.Size(31, 23);
+            this.btnPrethodna.Size = new System.Drawing.Size(27, 20);
             this.btnPrethodna.TabIndex = 27;
             this.btnPrethodna.UseVisualStyleBackColor = false;
             this.btnPrethodna.Click += new System.EventHandler(this.btnPrethodna_Click);
             // 
             // btnSljedeca
             // 
-            this.btnSljedeca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSljedeca.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSljedeca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
             this.btnSljedeca.FlatAppearance.BorderSize = 0;
             this.btnSljedeca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -290,22 +286,21 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.btnSljedeca.IconColor = System.Drawing.Color.White;
             this.btnSljedeca.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSljedeca.IconSize = 20;
-            this.btnSljedeca.Location = new System.Drawing.Point(1145, 457);
+            this.btnSljedeca.Location = new System.Drawing.Point(981, 396);
             this.btnSljedeca.Name = "btnSljedeca";
             this.btnSljedeca.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.btnSljedeca.Size = new System.Drawing.Size(31, 23);
+            this.btnSljedeca.Size = new System.Drawing.Size(27, 20);
             this.btnSljedeca.TabIndex = 28;
             this.btnSljedeca.UseVisualStyleBackColor = false;
             this.btnSljedeca.Click += new System.EventHandler(this.btnSljedeca_Click);
             // 
             // lblStranica
             // 
-            this.lblStranica.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblStranica.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStranica.AutoSize = true;
-            this.lblStranica.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblStranica.Font = new System.Drawing.Font("Corbel", 15.75F);
             this.lblStranica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(2)))), ((int)(((byte)(82)))));
-            this.lblStranica.Location = new System.Drawing.Point(1045, 455);
+            this.lblStranica.Location = new System.Drawing.Point(896, 394);
             this.lblStranica.Margin = new System.Windows.Forms.Padding(0);
             this.lblStranica.Name = "lblStranica";
             this.lblStranica.Size = new System.Drawing.Size(86, 26);
@@ -315,9 +310,9 @@ namespace Monets.WinUI.Forms.Uposlenik
             // 
             // frmUposlenici
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 698);
+            this.ClientSize = new System.Drawing.Size(1041, 605);
             this.Controls.Add(this.lblStranica);
             this.Controls.Add(this.btnSljedeca);
             this.Controls.Add(this.btnPrethodna);
@@ -330,8 +325,8 @@ namespace Monets.WinUI.Forms.Uposlenik
             this.Controls.Add(this.lblIme);
             this.Controls.Add(this.txtIme);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(1214, 698);
-            this.MinimumSize = new System.Drawing.Size(1214, 698);
+            this.MaximumSize = new System.Drawing.Size(1041, 605);
+            this.MinimumSize = new System.Drawing.Size(1041, 605);
             this.Name = "frmUposlenici";
             this.Text = "frmKorisnici";
             this.Load += new System.EventHandler(this.frmUposlenici_Load);

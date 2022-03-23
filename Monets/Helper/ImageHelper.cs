@@ -25,7 +25,7 @@ namespace Monets.API.Helpers
         {
             try
             {
-                if (byteArray.Length > 0 && byteArray != null)
+                if (byteArray?.Length > 0 && byteArray != null)
                 {
                     var filename = $"{putanja.ToLower()}_{id.ToString()}";
                     var extension = Path.GetExtension(imageName);
@@ -37,7 +37,7 @@ namespace Monets.API.Helpers
                 }
                 else
                 {
-                    return "noimage.png";
+                    return "no_image.png";
                 }
             }
             catch (Exception ex)

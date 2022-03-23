@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using Monets.WinUI.Forms.Izvjestaji;
 using Monets.WinUI.Forms.Jelo;
 using Monets.WinUI.Forms.Klijent;
-using Monets.WinUI.Forms.Meni;
 using Monets.WinUI.Forms.Rezervacija;
+using Monets.WinUI.Forms.Transakcija;
 using Monets.WinUI.Forms.Uposlenik;
 using Monets.WinUI.Services;
 
@@ -51,9 +53,11 @@ namespace Monets.WinUI.Forms.Static
         private APIService meniService = new APIService("Meni");
         private APIService rezervacijaService = new APIService("Rezervacija");
         public static frmMain INSTANCE;
+        private Model.Uposlenik uposlenik = null;
 
-        public frmMain()
+        public frmMain(Model.Uposlenik uposlenik = null)
         {
+            this.uposlenik = uposlenik;
             InitializeComponent();
             CustomizeDesign();
             Application.AddMessageFilter(this);
@@ -169,7 +173,7 @@ namespace Monets.WinUI.Forms.Static
 
         private void clearMainPanel()
         {
-            if(listOfActiveForms.Count>0)
+            if (listOfActiveForms.Count > 0)
             {
                 foreach (var item in listOfActiveForms)
                 {
@@ -183,6 +187,7 @@ namespace Monets.WinUI.Forms.Static
             lblNazivStranice.Text = "Jela";
             btnJela.Enabled = false;
             pbLoading.Visible = true;
+            mainPanel.AutoScroll = true;
             try
             {
                 clearMainPanel();
@@ -229,6 +234,7 @@ namespace Monets.WinUI.Forms.Static
 
         private void btnDodajJelo_Click(object sender, EventArgs e)
         {
+            mainPanel.AutoScroll = false;
             try
             {
                 clearMainPanel();
@@ -247,67 +253,9 @@ namespace Monets.WinUI.Forms.Static
             pbLoading.Visible = false;
         }
 
-        public async void btnPregledMenija_Click(object sender = null, EventArgs e = null)
-        {
-            lblNazivStranice.Text = "Meni";
-            btnMeni.Enabled = false;
-            pbLoading.Visible = true;
-            int brojacMenija = 1;
-            try
-            {
-                clearMainPanel();
-                var listaMenija = await meniService.Get<List<Model.Meni>>(null);
-                foreach (var meni in listaMenija)
-                {
-                    var noviPanel = new Panel();
-                    if (listaPanela.Count == 0)
-                        noviPanel.Location = new Point(45, 4);
-                    else
-                    {
-                        noviPanel.Location = new Point(listaPanela[listaPanela.Count - 1].Location.X + 555, listaPanela[listaPanela.Count - 1].Location.Y);
-                    }
-                    noviPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                    listaPanela.Add(noviPanel);
-                    noviPanel.Size = new Size(500, 698);
-                    mainPanel.Controls.Add(noviPanel);
-                    noviPanel.BringToFront();
-                    noviPanel.Show();
-                    var forma = new frmMeni(meni, brojacMenija++);
-                    openChildForm(forma, noviPanel);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            btnMeni.Enabled = true;
-            pbLoading.Visible = false;
-            listaPanela.Clear();
-        }
-
-        private void btnDodajMeni_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                clearMainPanel();
-                lblNazivStranice.Text = "Meni";
-                openChildForm(new frmUpsertMeni(), mainPanel);
-
-                btnDodajMeni.Enabled = false;
-                pbLoading.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            btnDodajMeni.Enabled = true;
-            pbLoading.Visible = false;
-        }
-
         public async void btnRezervacije_Click(object sender = null, EventArgs e = null)
         {
+            mainPanel.AutoScroll = true;
             lblNazivStranice.Text = "Rezervacije";
             btnRezervacije.Enabled = false;
             pbLoading.Visible = true;
@@ -326,7 +274,7 @@ namespace Monets.WinUI.Forms.Static
                     }
                     noviPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
                     listaPanela.Add(noviPanel);
-                    noviPanel.Size = new Size(1050, 125);
+                    noviPanel.Size = new Size(1050, 150);
                     mainPanel.Controls.Add(noviPanel);
                     noviPanel.BringToFront();
                     noviPanel.Show();
@@ -344,24 +292,32 @@ namespace Monets.WinUI.Forms.Static
             listaPanela.Clear();
         }
 
-        public void btnPregledKorisnika_Click(object sender=null, EventArgs e=null)
+        public void btnPregledKorisnika_Click(object sender = null, EventArgs e = null)
         {
-            try
+            if (!uposlenik.UposlenikUloga.Any(s => s.Uloga.Naziv == "Admin"))
             {
-                clearMainPanel();
-                lblNazivStranice.Text = "Korisnici";
-                openChildForm(new frmUposlenici(), mainPanel);
-
-                btnPregledUposlenika.Enabled = false;
-                pbLoading.Visible = true;
+                MessageBox.Show("Nemate pristup ovom resursu", "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                mainPanel.AutoScroll = false;
+                try
+                {
+                    clearMainPanel();
+                    lblNazivStranice.Text = "Korisnici";
+                    openChildForm(new frmUposlenici(), mainPanel);
 
-            btnPregledUposlenika.Enabled = true;
-            pbLoading.Visible = false;
+                    btnPregledUposlenika.Enabled = false;
+                    pbLoading.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                btnPregledUposlenika.Enabled = true;
+                pbLoading.Visible = false;
+            }
         }
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
@@ -371,6 +327,7 @@ namespace Monets.WinUI.Forms.Static
 
         public async void loadUpdateJela(int id)
         {
+            mainPanel.AutoScroll = false;
             try
             {
                 clearMainPanel();
@@ -390,29 +347,10 @@ namespace Monets.WinUI.Forms.Static
             pbLoading.Visible = false;
         }
 
-        public async void loadUpdateMenija(int id)
-        {
-            try
-            {
-                clearMainPanel();
-                var meni = await meniService.GetById<Model.Meni>(id);
-                lblNazivStranice.Text = "Meni";
-                openChildForm(new frmUpsertMeni(meni), mainPanel);
-
-                btnDodajMeni.Enabled = false;
-                pbLoading.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            btnDodajMeni.Enabled = true;
-            pbLoading.Visible = false;
-        }
 
         public void loadUpdateUposlenika(Model.Uposlenik uposlenik)
         {
+            mainPanel.AutoScroll = false;
             try
             {
                 clearMainPanel();
@@ -431,6 +369,7 @@ namespace Monets.WinUI.Forms.Static
 
         public void loadUpdateKlijenta(Model.Klijent klijent)
         {
+            mainPanel.AutoScroll = false;
             try
             {
                 clearMainPanel();
@@ -449,22 +388,30 @@ namespace Monets.WinUI.Forms.Static
 
         private void btnDodajUposlenika_Click(object sender, EventArgs e)
         {
-            try
+            if (!uposlenik.UposlenikUloga.Any(s => s.Uloga.Naziv == "Admin"))
             {
-                clearMainPanel();
-                lblNazivStranice.Text = "Uposlenik";
-                openChildForm(new frmDodajUposlenika(), mainPanel);
-
-                btnDodajUposlenika.Enabled = false;
-                pbLoading.Visible = true;
+                MessageBox.Show("Nemate pristup ovom resursu", "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                mainPanel.AutoScroll = false;
+                try
+                {
+                    clearMainPanel();
+                    lblNazivStranice.Text = "Uposlenik";
+                    openChildForm(new frmDodajUposlenika(), mainPanel);
 
-            btnDodajUposlenika.Enabled = true;
-            pbLoading.Visible = false;
+                    btnDodajUposlenika.Enabled = false;
+                    pbLoading.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                btnDodajUposlenika.Enabled = true;
+                pbLoading.Visible = false;
+            }
         }
 
         private void btnKlijenti_Click(object sender, EventArgs e)
@@ -477,15 +424,44 @@ namespace Monets.WinUI.Forms.Static
             showSubmenu(panelIzvjestaji);
         }
 
-        public void btnPregledKlijenata_Click(object sender=null, EventArgs e=null)
+        public void btnPregledKlijenata_Click(object sender = null, EventArgs e = null)
         {
+            if (!uposlenik.UposlenikUloga.Any(s => s.Uloga.Naziv == "Admin"))
+            {
+                MessageBox.Show("Nemate pristup ovom resursu", "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                mainPanel.AutoScroll = false;
+                try
+                {
+                    clearMainPanel();
+                    lblNazivStranice.Text = "Klijenti";
+                    openChildForm(new frmKlijenti(), mainPanel);
+
+                    btnPregledKlijenata.Enabled = false;
+                    pbLoading.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                btnPregledKlijenata.Enabled = true;
+                pbLoading.Visible = false;
+            }
+        }
+
+        public void btnPregledTransakcija_Click(object sender = null, EventArgs e = null)
+        {
+            mainPanel.AutoScroll = false;
             try
             {
                 clearMainPanel();
-                lblNazivStranice.Text = "Klijenti";
-                openChildForm(new frmKlijenti(), mainPanel);
+                lblNazivStranice.Text = "Transakcije";
+                openChildForm(new frmTransakcije(), mainPanel);
 
-                btnPregledKlijenata.Enabled = false;
+                btnPregledTransakcija.Enabled = false;
                 pbLoading.Visible = true;
             }
             catch (Exception ex)
@@ -493,8 +469,63 @@ namespace Monets.WinUI.Forms.Static
                 MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            btnPregledKlijenata.Enabled = true;
+            btnPregledTransakcija.Enabled = true;
             pbLoading.Visible = false;
+        }
+
+        private void btnDodajTransakciju_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIzvjestaj1_Click(object sender, EventArgs e)
+        {
+            mainPanel.AutoScroll = false;
+            try
+            {
+                clearMainPanel();
+                lblNazivStranice.Text = "Izvještaj";
+                openChildForm(new frmJelaPoKategorijama(), mainPanel);
+
+                btnIzvjestaj1.Enabled = false;
+                pbLoading.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            btnIzvjestaj1.Enabled = true;
+            pbLoading.Visible = false;
+        }
+
+        private void btnUplatePoKlijentu_Click(object sender, EventArgs e)
+        {
+            mainPanel.AutoScroll = false;
+            try
+            {
+                clearMainPanel();
+                lblNazivStranice.Text = "Izvještaj";
+                openChildForm(new frmTransakcijePoKlijentu(), mainPanel);
+
+                btnUplatePoKlijentu.Enabled = false;
+                pbLoading.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Greška prilikom učitavanja.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            btnUplatePoKlijentu.Enabled = true;
+            pbLoading.Visible = false;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var frm = new frmLogin();
+            frm.Show();
+
+            this.Hide();
         }
     }
 }

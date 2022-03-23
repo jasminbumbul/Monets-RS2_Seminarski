@@ -21,5 +21,10 @@ namespace Monets.Model
         public int GradId { get; set; }
 
         public virtual Model.Grad Grad { get; set; }
+        public virtual Model.KorisnickiRacun KorisnickiRacun{ get; set; }
+        public string ImePrezimeKlijenta
+        {
+            get { return Ime+" "+Prezime; }
+        }
     }
 }

@@ -6,6 +6,8 @@ namespace Monets.Model.Requests
 {
     public class JeloSearchRequest
     {
-        public string NazivJela { get; set; }
+        public string Naziv { get; set; }
+        public int JeloId { get; set; }
+        public int KategorijaId { get; set; }
     }
 }

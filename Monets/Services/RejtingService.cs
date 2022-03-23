@@ -31,6 +31,11 @@ namespace Monets.Api.Services
                 entity = entity.Where(x => x.Ocjena == search.Ocjena);
             }
 
+            if (search?.klijentId > 0)
+            {
+                entity = entity.Where(x => x.KlijentId == search.klijentId);
+            }
+
             if (search?.jeloId > 0)
             {
                 entity = entity.Where(x => x.JeloId == search.jeloId);
@@ -46,11 +51,10 @@ namespace Monets.Api.Services
             return _mapper.Map<List<Model.Rejting>>(list);
         }
 
+       
+
         public async override Task<Model.Rejting> Insert(RejtingUpsertRequest request)
         {
-            var loggedInUserUsername = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            request.KlijentId = await Context.Klijent.Include("KorisnickiRacun").Where(x => x.KorisnickiRacun.KorisnickoIme== loggedInUserUsername).Select(x => x.KlijentId).FirstOrDefaultAsync();
-
             if (request.Ocjena < 0 || request.Ocjena > 5)
             {
                 throw new UserException("Ocjena nije validna(mora biti između 0-5).");
@@ -63,9 +67,25 @@ namespace Monets.Api.Services
                 throw new UserException("Jelo za koje pokušavate dodati rejting ne postoji.");
             }
 
-            var rejting = _mapper.Map<Rejting>(request);
-            await Context.Rejting.AddAsync(rejting);
-            await Context.SaveChangesAsync();
+            var listaRejtinga = await Context.Rejting.ToListAsync();
+
+            Rejting rejting = null;
+
+            foreach (var item in listaRejtinga)
+            {
+                if(item.JeloId == request.JeloId && item.KlijentId == request.KlijentId)
+                {
+                    rejting = item;
+                    item.Ocjena = request.Ocjena;
+                    await Context.SaveChangesAsync();
+                }
+            }
+            if (rejting == null)
+            {
+                rejting = _mapper.Map<Rejting>(request);
+                await Context.Rejting.AddAsync(rejting);
+                await Context.SaveChangesAsync();
+            }
 
             return _mapper.Map<Model.Rejting>(rejting);
         }
@@ -120,5 +140,30 @@ namespace Monets.Api.Services
                 throw new UserException("Brisanje nije bilo moguće." + ex.InnerException);
             }
         }
+
+        public async Task<double> GetUkupanRejtingZaJelo(int jeloId)
+        {
+            double rejting = 0;
+            int count = 0;
+
+            if (jeloId < 1)
+            {
+                throw new UserException("Jelo nije validno");
+            }
+
+            var listaRejtinga = await Context.Rejting.ToListAsync();
+
+            foreach (var item in listaRejtinga)
+            {
+                if (item.JeloId == jeloId)
+                {
+                    rejting += Convert.ToDouble(item.Ocjena);
+                    count++;
+                }
+            }
+
+            return count > 0 ? rejting /= count : 0;
+        }
+
     }
 }

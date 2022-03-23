@@ -12,7 +12,7 @@ namespace Monets.Api.Database
         public int UlogaId { get; set; }
         public DateTime? DatumIzmjene { get; set; }
 
+        public virtual Uloga Uloga { get; set; }
         public virtual Uposlenik Uposlenik { get; set; }
-        public virtual Uloga Uloga{ get; set; }
     }
 }

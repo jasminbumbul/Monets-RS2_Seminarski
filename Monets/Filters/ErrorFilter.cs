@@ -16,11 +16,13 @@ namespace Monets.Api.Filters
             {
                 context.ModelState.AddModelError("ERROR", context.Exception.Message);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                Console.WriteLine(context.Exception.Message);
             }
             else
             {
                 context.ModelState.AddModelError("ERROR", "Greška na serveru");
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                Console.WriteLine(context.Exception.Message);
             }
 
             //da zadrzimo konvenciju kakvu vraća validation filter

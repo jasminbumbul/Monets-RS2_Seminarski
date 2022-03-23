@@ -18,7 +18,6 @@ using Monets.Api.Services;
 using Monets.Services;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -36,6 +35,9 @@ namespace Monets
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddDefaultPolicy(
+                 builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+                     ));
             services.AddMvc(x => x.Filters.Add<ErrorFilter>());
             services.AddControllers().AddNewtonsoftJson(x =>
             x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -73,9 +75,14 @@ namespace Monets
             services.AddScoped<IRejtingService, RejtingService>();
             services.AddScoped<IStolService, StolService>();
             services.AddScoped<IRezervacijaService, RezervacijaService>();
+            services.AddScoped<IJeloRezervacijaService, JeloRezervacijaService>();
             services.AddScoped<IKorisnickiRacun, KorisnickiRacunService>();
             services.AddScoped<IUposlenikService, UposlenikService>();
+            services.AddScoped<IFavoriteService, FavoriteService>();
             services.AddScoped<IKlijentService, KlijentService>();
+            services.AddScoped<ITransakcijaService, TransakcijaService>();
+            services.AddScoped<IPreporukaService, PreporukaService>();
+            services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IReadService<Model.Uloga, object>, BaseReadService<Model.Uloga, Uloga, object>>();
             services.AddScoped<IReadService<Model.Grad, object>, BaseReadService<Model.Grad, Grad, object>>();
 
@@ -106,15 +113,16 @@ namespace Monets
 
             app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllers();
             });
         }
     }

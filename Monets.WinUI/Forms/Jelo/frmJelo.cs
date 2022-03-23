@@ -54,7 +54,7 @@ namespace Monets.WinUI.Forms
                     prosjecniRejting += (double)rejting.Ocjena;
                 }
                 prosjecniRejting /= listaMojihRejtinga.Count;
-                pbRejting.Value = (int)((100 * listaMojihRejtinga.Count) / prosjecniRejting);
+                pbRejting.Value = (int)((100 * prosjecniRejting) / 5);
             }
 
             lblRejting.Text = "Rejting " + prosjecniRejting + "/5" + "(" + listaMojihRejtinga.Count + " rejtinga)";

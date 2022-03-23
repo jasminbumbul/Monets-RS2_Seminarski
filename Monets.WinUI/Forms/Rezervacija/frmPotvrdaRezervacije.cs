@@ -52,7 +52,8 @@ namespace Monets.WinUI.Forms.Rezervacija
                 pbLoading.Visible = true;
                 request.Poruka = txtPotvrdi.Text;
                 request.Potvrdjena = true;
-                request.DatumRezervacije = rezervacija.DatumRezervacije;
+                request.PocetakRezervacije = rezervacija.PocetakRezervacije;
+                request.KrajRezervacije = rezervacija.KrajRezervacije;
                 request.Placena = rezervacija.Placena;
                 request.StolId = rezervacija.StolId;
 

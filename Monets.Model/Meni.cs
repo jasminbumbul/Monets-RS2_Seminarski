@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-#nullable disable
-
 namespace Monets.Model
 {
     public partial class Meni

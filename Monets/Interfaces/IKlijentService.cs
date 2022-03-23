@@ -1,4 +1,5 @@
-﻿using Monets.Model.Requests;
+﻿using Microsoft.AspNetCore.Mvc;
+using Monets.Model.Requests;
 using Monets.Services;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,7 @@ namespace Monets.Api.Interfaces
     public interface IKlijentService : ICRUDService<Model.Klijent, KlijentSearchRequest, KlijentInsertRequest, KlijentUpdateRequest>
     {
         public Task<Model.Klijent> Login(AuthenticationRequest request);
+        public Task UpdatePassword(Model.Requests.UpdatePasswordModel passwordModel);
+        public Task ProvjeraKoda(Model.Requests.UpdatePasswordModel passwordModel);
     }
 }

@@ -14,6 +14,7 @@ namespace Monets.WinUI.Forms.Rezervacija
     {
         private Model.Rezervacija rezervacija;
         private readonly APIService stolService = new APIService("Stol");
+        private readonly APIService klijentService = new APIService("Klijent");
         public frmRezervacija(Model.Rezervacija rezervacija)
         {
             InitializeComponent();
@@ -23,16 +24,20 @@ namespace Monets.WinUI.Forms.Rezervacija
 
         private async void ucitajPodatke()
         {
-            //todo: cijena, korisnik
-            btnPotvrda.BackColor = (bool)rezervacija.Potvrdjena ? Color.FromArgb(255, 221, 9) : Color.FromArgb(243, 76, 54);
-            btnPotvrda.Text = (bool)rezervacija.Potvrdjena ? "Potvrđena" : "Nije potvrđena";
-            lblDatum.Text = rezervacija.DatumRezervacije.ToShortDateString();
+            var klijent = await klijentService.GetById<Model.Klijent>(rezervacija.KlijentId);
+            lblDatum.Text = rezervacija.PocetakRezervacije.ToShortDateString();
             lblPlaceno.Text = (bool)rezervacija.Placena ? "Plaćeno" : "Nije plaćeno";
             lblSifra.Text = rezervacija.Sifra;
             Model.Stol stol = await stolService.GetById<Model.Stol>(rezervacija.StolId);
             lblStol.Text = stol.NazivStola + ", " + stol.BrojMjesta + " mjesta.";
-            lblVrijeme.Text = rezervacija.DatumRezervacije.ToLongTimeString();
-            lblRazlog.Text = (bool)rezervacija.Potvrdjena ? "" : "Odbijena zbog:"+rezervacija.Poruka;
+            lblVrijeme.Text = rezervacija.PocetakRezervacije.ToLongTimeString();
+            lblKorisnik.Text = klijent.ImePrezimeKlijenta;
+            double cijena = 0;
+            foreach (var item in rezervacija.JeloRezervacija)
+            {
+                cijena += item.Jelo.Cijena.Value * item.Kolicina;
+            }
+            lblCijena.Text=cijena.ToString()+"KM"; 
         }
 
         private void frmRezervacija_Load(object sender, EventArgs e)

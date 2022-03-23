@@ -9,10 +9,11 @@ using System.Linq;
 using Monets.Api.Interfaces;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.Json.Serialization;
 
 namespace Monets.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class KlijentController : BaseCRUDController<Model.Klijent, KlijentSearchRequest, KlijentInsertRequest, KlijentUpdateRequest>
     {
         private readonly IKlijentService service;
@@ -21,11 +22,26 @@ namespace Monets.Api.Controllers
             this.service = service;
         }
 
-        //[Authorize(Roles = "Klijent")]
+        [Authorize(Roles = "Klijent")]
+        [Consumes("application/json")]
         [HttpPost("Login")]
         public async Task<Model.Klijent> Login(AuthenticationRequest request)
         {
             return await service.Login(request);
         }
+
+        [Authorize(Roles = "Klijent")]
+        [HttpPut("UpdatePassword")]
+        public async Task UpdatePassword(Model.Requests.UpdatePasswordModel passwordModel)
+        {
+            await service.UpdatePassword(passwordModel);
+        }
+
+        [HttpPut("ProvjeraKoda")]
+        public async Task ProvjeraKoda(Model.Requests.UpdatePasswordModel passwordModel)
+        {
+            await service.ProvjeraKoda(passwordModel);
+        }
+
     }
 }
